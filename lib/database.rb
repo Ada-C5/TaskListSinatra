@@ -3,22 +3,25 @@ require "sqlite3"
 module TaskList
   class Database
 
-    def initialize(db_name)
-      @db = SQLite3::Database.new(db_name)
+    def initialize(dbname = "tasks")
+      @db = SQLite3::Database.new("database/#{dbname}.db")
     end
 
     def create_schema
       query = <<-CREATESTATEMENT
-        CREATE TABLE task_list (
+        CREATE TABLE tasklist (
           id INTEGER PRIMARY KEY,
-          done_or_not NUMERIC,
-          task TEXT NOT NULL,
-          due_date TEXT,
+          title TEXT NOT NULL,
+          description TEXT,
+          completed_at TEXT
         );
       CREATESTATEMENT
 
-      @db.execute("DROP TABLE IF EXISTS task_list;")
+      @db.execute("DROP TABLE IF EXISTS tasklist;")
       @db.execute(query)
     end
+
   end
 end
+
+TaskList::Database.new.create_schema
