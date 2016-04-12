@@ -1,0 +1,12 @@
+<!-- Needs to display ID from database -->
+<form action="/newtask" method="post" accept-charset="utf-8">
+  <label for="title">Enter a New Task</label>
+  <input type="text" name="title" value="" id="title" required pattern="[A-Za-z0-9]{1,20}" title="Please enter your task, up to 20 characters">
+  
+  <label for="description">Describe Your Task</label>
+  <input type="text" name="description" value="" id="description" title="Please enter your task description">
+
+  <label for="completed">Time and Date Completed</label>
+  <input type="text" name="completed" value="" id="completed"  title="Please enter when you completed your task">
+  <input type="submit" value="Submit">
+</form>

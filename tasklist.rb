@@ -9,5 +9,8 @@ class TaskList < Sinatra::Base
 		erb :newtask
 	end
 
-
+	post '/newtask' do 
+		erb :index
+	end 
+	run! 
 end
