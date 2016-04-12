@@ -1,4 +1,4 @@
-require "sqlite3"
+require 'sqlite3'
 
 module TaskList
   class Database
@@ -17,7 +17,7 @@ module TaskList
           id INTEGER PRIMARY KEY,
           title TEXT NOT NULL,
           description TEXT,
-          completed_at TEXT,
+          completed_at TEXT
         );
       CREATESTATEMENT
 
@@ -32,20 +32,15 @@ module TaskList
 
     def initialize(dbname = "task_list")
       @db = SQLite3::Database.new("database/#{dbname}.db")
-      create_schema
-    end
-
-    def create_schema
-      database = TaskList::Database.new
     end
 
     def new_task(task)
 
       insert_statement = <<-INSERTSTATEMENT
         INSERT INTO task_list (
-          title, description, completed_at
+        title, description, completed_at
         ) VALUES (
-        #{task["title"]}, #{task["description"]}, #{task["completed_at"]}
+        "#{task["title"]}", "#{task["description"]}", "#{task["completed_at"]}"
         );
       INSERTSTATEMENT
 
@@ -55,6 +50,10 @@ module TaskList
 
     def find_task
 
+    end
+
+    def print_data
+      @db.execute("SELECT * FROM task_list;")
     end
 
   end
