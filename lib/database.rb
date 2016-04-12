@@ -45,4 +45,19 @@ module TaskList
     #   end
     # end
   end
+
+  class TaskRecord
+    attr_reader :db
+
+    def initialize(dbname = "task_list")
+      @db = SQLite3::Database.new("database/#{dbname}.db")
+    end
+
+    def new_task
+    end
+
+    def find_task
+    end
+    
+  end
 end
