@@ -17,7 +17,7 @@ module TaskList
           task TEXT NOT NULL,
           priority TEXT,
           status TEXT DEFAULT 'Not Started',
-          date_created TEXT',
+          date_created TEXT,
           due_date TEXT,
           comments BLOB
         );
