@@ -1,6 +1,8 @@
 require 'Sinatra'
 
 class TaskList < Sinatra::Base
+
+
 	get '/' do
 		erb :index
 	end
@@ -11,6 +13,7 @@ class TaskList < Sinatra::Base
 
 	post '/newtask' do 
 		erb :index
+		
 	end 
 	run! 
 end

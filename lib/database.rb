@@ -1,25 +1,52 @@
 require "sqlite3"
 
 module TaskList
-  class Database
+  class TaskDatabase
+    attr_reader :db 
 
-    def initialize(db_name)
-    	# Connects to the database
-      @db = SQLite3::Database.new(db_name)
+    def initialize(db_name = "tasks")
+    	# Connects to the database 
+      @db = SQLite3::Database.new "database/#{db_name}.db"
     end
-
-    private
 
     def create_schema
-    		query = <<-QUERY
-    			CREATE TABLE tasks (
-    				id INTEGER PRIMARY KEY,
-    				title TEXT NOT NULL,
-    				description TEXT,
-    				completed TEXT
-    			);
-    		QUERY
-    		@db.execute(query)
+      puts "Preparing table"
+
+    	query = <<-QUERY
+    		CREATE TABLE tasks (
+    			id INTEGER PRIMARY KEY,
+    			title TEXT NOT NULL,
+    			description TEXT,
+    			completed TEXT
+    		);
+    	QUERY
+      db.execute("DROP TABLE IF EXISTS tasks;")
+    	db.execute(query)
+
+      puts "Table creation completed!"
+
     end
+
+    def load!
+        puts "Preparing INSERT statements"
+        insert_statement = <<-QUERY
+            INSERT INTO tasks (title, description, completed) 
+            VALUES (params[:title], params[:description], params[:completed])
+            );
+        QUERY
+        prepared_statement = db.prepare(insert_statement)
+
+
+        puts "Data import complete!"
+    end 
   end
 end
+
+test = TaskList::TaskDatabase.new
+test.create_schema
+test.load
+
+title = "This is my title"
+description = "This is a great description"
+completed = "I did this stuff last Wednesday"
+
