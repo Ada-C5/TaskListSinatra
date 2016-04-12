@@ -1,4 +1,5 @@
 require "sqlite3"
+require 'tilt/erb'
 
 module TaskList
   class Database
@@ -11,7 +12,7 @@ module TaskList
       # Put your ruby code here to use the @db variable
       # to setup your schema in the database.
       todo = <<-CREATESTATEMENT
-      CREATE TABLE todo (
+      CREATE TABLE IF NOT EXISTS todo (
       id INTEGER PRIMARY KEY,
       title TEXT NOT NULL,
       description TEXT,
@@ -20,7 +21,6 @@ module TaskList
       );
     	CREATESTATEMENT
 
-    	@db.execute("DROP TABLE IF EXISTS todo;")
     	@db.execute(todo)
     end
   end
@@ -44,5 +44,14 @@ module TaskList
   		prepared = @db.prepare(task)
   		prepared.execute(params)
   	end
+
+    def show_all
+      all = <<-STATEMENT
+      SELECT *
+      FROM todo;
+      STATEMENT
+
+      @db.execute(all)
+    end
   end
 end
