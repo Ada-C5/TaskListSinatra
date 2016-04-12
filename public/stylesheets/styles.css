@@ -1,0 +1,14 @@
+html {
+	background-color: gray;
+}
+
+table {
+	width= 100%;
+/*	background-color: red;*/
+	border = 1px solid black;
+/*	border-collapse: collapse;*/
+}
+
+th, td {
+    padding: 5px;
+}
