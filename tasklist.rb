@@ -6,7 +6,14 @@ class TaskApp < Sinatra::Base
 
   get '/' do
     test_hash
+    erb :index
+  end
 
+  get '/create-task' do
+    erb :create_task
+  end
+
+  post '/' do
     erb :index
   end
 
