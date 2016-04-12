@@ -4,6 +4,8 @@ require_relative 'lib/task_maintenance'
 class MyApp < Sinatra::Base
 
   get '/' do
+    @my_task = Task_Maintenance.new
+    @results = @my_task.select_task
     erb :index
   end
 
@@ -15,7 +17,8 @@ class MyApp < Sinatra::Base
     @my_task = Task_Maintenance.new
     @form_info = params["task"]
     @my_task.add_task(@form_info)
-    erb :first_form
+    # erb :first_form
+    redirect '/'
   end
 
   run!

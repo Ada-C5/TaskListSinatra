@@ -23,6 +23,10 @@ class Task_Maintenance
   end
 
   def select_task
-
+    db.execute <<-QUERY
+    SELECT *
+    FROM tasks;
+    QUERY
   end
+
 end
