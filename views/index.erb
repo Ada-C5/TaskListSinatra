@@ -3,11 +3,12 @@
 
 <p>
   This is the index.
+  <%= params %>
 </p>
 <!-- <% mytasks = TaskHandler.new %> -->
 <!-- <% if mytasks == nil %>
 <%= puts "You have no tasks to list." %>
 <% else %> -->
-<%= puts mytasks.list_all %>
+<%= "#{mytasks.list_all}" %>
 <!-- <% end %> -->
 </body>
