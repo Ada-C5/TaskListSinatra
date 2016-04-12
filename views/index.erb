@@ -1,14 +1,24 @@
+<% if @task %>
+  <%= @task %>
+  <%= @date_added %>
+  <%= @due_date %>
+<% end %>
+
+<div class="params">
+  <%= params %>
+</div>
+
 <fieldset>
     <legend>Enter a task:</legend>
       <form action="" method="post" accept-charset="utf-8">
         <label for="taskname"></label>
         <input class="input_area" type="text" name="task" value="" id="taskname">
-<!-- 
+<!--
         <label for="dateadded"></label>
         <input class="input_area" type="text" name="task" value="" id="taskname"> -->
 
         <label for="duedate"></label>
-        <input class="input_area" type="time" name="duedate" value="" id="duedate">
+        <input class="input_area" type="date" name="duedate" value="" id="duedate">
         <input class="button" type="submit" value="Add to list">
     	</form>
 </fieldset>

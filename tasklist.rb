@@ -7,7 +7,9 @@ class ToDoList < Sinatra::Base
 	end
 
 	post '/' do
-		@task = 
+		@task = params[:task]
+		@date_added = Time.now
+		@due_date = params[:duedate]
 		erb :index
 	end
 	run!
