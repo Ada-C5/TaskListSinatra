@@ -38,11 +38,9 @@ module TaskList
 
     end
 
-    
-
     def select_task
       @db.execute <<-HERE
-      SELECT * FROM tasks;
+      SELECT title, description FROM tasks;
       HERE
     end
   end
@@ -52,4 +50,5 @@ end
 # include inserting new tasks into the database,
 # and selecting existing tasks from the database.
 # TaskList::Database.new.create_schema
- puts TaskList::TaskQueries.new.select_task
+
+ # puts TaskList::TaskQueries.new.select_task
