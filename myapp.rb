@@ -11,6 +11,12 @@ class MyApp < Sinatra::Base
     erb :index
   end
 
+# BUT WHY!?!??!?!
+  # post '/' do
+  #   @entire_list = TaskList::TaskQueries.new.select_task
+  #   erb :index
+  # end
+
   get '/add' do
     erb :add
   end

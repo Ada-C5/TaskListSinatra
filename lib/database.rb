@@ -40,7 +40,7 @@ module TaskList
 
     def select_task
       @db.execute <<-HERE
-      SELECT title, description FROM tasks;
+      SELECT title, description, completed_at FROM tasks;
       HERE
     end
   end
