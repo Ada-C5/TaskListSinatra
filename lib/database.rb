@@ -4,39 +4,29 @@ module TaskList
   class Database
     attr_reader :db
 
-    def initialize(db_name)
-      @db = SQLite3::Database.new(db_name)
+    def initialize(db_name= "tasks")
+      @db = SQLite3::Database.new("database/#{db_name}.db")
     end
 
     def create_schema
     puts "Creating Schema..."
 
     query = <<-CREATESTATEMENT
-      CREATE TABLE tasks(
+      CREATE TABLE tasks (
         id INTEGER PRIMARY KEY,
         title TEXT NOT NULL,
         description TEXT,
-        completed_at TEXT,
+        completed_at TEXT
       );
       CREATESTATEMENT
 
-      db.execute("DROP TABLE IF EXISTS albums;")
       db.execute(query)
     end
 
-    def load!
-        puts "Preparing INSERT statements..."
-
-        insert_statement = <<-INSERTSTATEMENT
-          INSERT INTO tasks (
-            id, title, description, completed_at
-          ) VALUES (
-            :id, :title, :description, :completed_at
-          );
-        INSERTSTATEMENT
-
-        prepared_statement = db.prepare(insert_statement)
-
+    def reset_schema
+      puts "Resetting schema..."
+      db.execute("DROP TABLE IF EXISTS tasks;")
+      create_schema
         # now that we have a prepared statement...
         # let's iterate the csv and use its values to populate our database
         # CSV.foreach(FILE_PATH, headers: true) do |row|
@@ -47,3 +37,5 @@ module TaskList
       end
   end
 end
+
+TaskList::Database.new.create_schema
