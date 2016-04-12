@@ -8,13 +8,12 @@ class Queries < TaskList::Database
     @db = SQLite3::Database.new "database/#{db_name}.db"
   end
 
-  def add_task(task, priority, due_date, comments)
+  def add_task(task, priority, status, date_created, due_date, comments)
     query = <<-QUERY
-    INSERT INTO tasks (task, priority, due_date, comments )
-    VALUES (?, ?, ?, ?);
+    INSERT INTO tasks (task, priority, status, date_created, due_date, comments)
+    VALUES (?, ?, ?, ?, ?, ?);
     QUERY
-    db.execute(query, task, priority, due_date, comments)
-
+    db.execute(query, task, priority, status, date_created, due_date, comments)
   end
 
   def select_by_due_date(direction) #asc or desc
