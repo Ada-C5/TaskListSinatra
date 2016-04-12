@@ -1,9 +1,13 @@
 require 'Sinatra'
 
-class TaskList
-	get '/' do 
+class TaskList < Sinatra::Base
+	get '/' do
 		erb :index
-	end 
+	end
+
+	get '/newtask' do
+		erb :newtask
+	end
 
 
-end 
+end
