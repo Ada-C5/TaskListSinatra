@@ -8,8 +8,14 @@ module TaskList
     end
 
     def create_schema
-      # Put your ruby code here to use the @db variable
-      # to setup your schema in the database.
+      query = <<-CREATESTATEMENT
+        CREATE TABLE albums (
+          id INTEGER PRIMARY KEY,
+          done_or_not NUMERIC,
+          task TEXT NOT NULL,
+          due_date TEXT,
+        );
+      CREATESTATEMENT
     end
   end
 end
