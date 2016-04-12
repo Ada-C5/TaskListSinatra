@@ -10,5 +10,9 @@ class MyApp < Sinatra::Base
     erb :index
   end
 
+  get '/add' do
+    erb :add
+  end
+
 run!
 end
