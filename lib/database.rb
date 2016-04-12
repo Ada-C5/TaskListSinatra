@@ -24,6 +24,21 @@ module TaskList
       db.execute(create_query)
     end
   end
+
+  class Interaction < TaskList::Database
+    attr_reader :db
+
+    def create_task(hash)
+      insert_statement = <<-INSERT
+      INSERT INTO tasks (
+      title, description, completed_at
+      ) VALUES ( :title, :description, :completed_at);
+      INSERT
+
+      db.execute(insert_statement, hash)
+    end
+
+  end
 end
 
 task_db = TaskList::Database.new
