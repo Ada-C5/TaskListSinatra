@@ -19,8 +19,8 @@ For the baseline you will need to create the following project files:
 
 Additionally you will need to do the following to design and create your database:
 
-- Create a database schema suitable for storing and organizing "tasks". Design this on paper or in a text editor first, and then translate it into SQL code using `CREATE TABLE`. Put this code in the `lib/database.rb` file, within the `create_schema` method.
-- Write a database setup script, `create_schema.rb`, that creates the table(s) defined in your schema.
+- Create a database schema suitable for storing and organizing "tasks". Design this on paper or in a text editor first.
+- Then translate it into SQL code using `CREATE TABLE`. Put this code in the `lib/database.rb` file, within the `create_schema` method.
 
 When you are done with the baseline it should be possible to setup your project on a different computer using the following bash commands:
 ```bash
