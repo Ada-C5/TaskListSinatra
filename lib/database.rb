@@ -6,11 +6,7 @@ module TaskList
 
     def initialize(dbname = "task_list")
       @db = SQLite3::Database.new("database/#{dbname}.db")
-    end
-
-    def setup!
-      reset_schema!
-      # load!
+      create_schema!
     end
 
     private
@@ -20,30 +16,15 @@ module TaskList
         CREATE TABLE task_list (
           id INTEGER PRIMARY KEY,
           title TEXT NOT NULL,
-          completed_at TEXT,
           description TEXT,
+          completed_at TEXT,
         );
       CREATESTATEMENT
 
-      @db.execute("DROP TABLE IF EXISTS task_list;")
+      # @db.execute("DROP TABLE IF EXISTS task_list;")
       @db.execute(query) # runs one and only one query
     end
 
-    # def load!
-    #   insert_statement = <<-INSERTSTATEMENT
-    #     INSERT INTO albums (
-    #       label_code, artist, title, label, format, released, date_added
-    #     ) VALUES (
-    #     :label_code, :artist, :title, :label, :format, :released, :date_added
-    #     );
-    #   INSERTSTATEMENT
-    #
-    #   prepared_statement = @db.prepare(insert_statement)
-    #
-    #   CSV.foreach(FILE_PATH, headers: true) do |row|
-    #     prepared_statement.execute(row.to_h)
-    #   end
-    # end
   end
 
   class TaskRecord
@@ -51,13 +32,30 @@ module TaskList
 
     def initialize(dbname = "task_list")
       @db = SQLite3::Database.new("database/#{dbname}.db")
+      create_schema
     end
 
-    def new_task
+    def create_schema
+      database = TaskList::Database.new
+    end
+
+    def new_task(task)
+
+      insert_statement = <<-INSERTSTATEMENT
+        INSERT INTO task_list (
+          title, description, completed_at
+        ) VALUES (
+        #{task["title"]}, #{task["description"]}, #{task["completed_at"]}
+        );
+      INSERTSTATEMENT
+
+       @db.execute(insert_statement)
+
     end
 
     def find_task
+
     end
-    
+
   end
 end
