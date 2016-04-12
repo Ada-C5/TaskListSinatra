@@ -1,3 +1,6 @@
+require "sqlite3"
+
+
 class TaskList::Queries
   attr_reader :db
   def initialize(dbname = "task_list")
@@ -6,10 +9,14 @@ class TaskList::Queries
 
 end
 
-class Tasks < TaskList::Queries
+class TaskQueries < TaskList::Queries
 
-  def load!
-    INSERT INTO tasks ( title, description,completed_at)
+  def load!(hash)
+    statement = <<-STATEMENT
+    INSERT INTO tasks (title, description,completed_at)
+    VALUES (:title, :description, :completed_at);
+    STATEMENT
+    @db.execute(statement, hash)
 
   end
 end
