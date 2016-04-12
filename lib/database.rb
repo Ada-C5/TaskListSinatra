@@ -16,11 +16,11 @@ module TaskList
       title TEXT NOT NULL,
       description TEXT,
       date_added TEXT,
-      completed_at TEXT,
+      completed_at TEXT
       );
     	CREATESTATEMENT
 
-    	# @db.execute("DROP TABLE IF EXISTS todo;")
+    	@db.execute("DROP TABLE IF EXISTS todo;")
     	@db.execute(todo)
     end
   end
@@ -31,7 +31,8 @@ module TaskList
   		super
   	end
 
-  	def new_task!(title, description = nil, date_added = nil, completed_at =nil)
+
+  	def new_task!(params)
   		task= <<-INSERTSTATEMENT
   		INSERT INTO todo(
   			title, description, date_added, completed_at
@@ -39,6 +40,9 @@ module TaskList
   			:title, :description, :date_added, :completed_at
   		);
   		INSERTSTATEMENT
+
+  		prepared = @db.prepare(task)
+  		prepared.execute(params)
   	end
   end
 end
