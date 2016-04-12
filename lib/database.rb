@@ -2,14 +2,30 @@ require "sqlite3"
 
 module TaskList
   class Database
+    attr_reader :db
 
-    def initialize(db_name)
-      @db = SQLite3::Database.new(db_name)
+    def initialize(db_name = "tasklist")
+      @db = SQLite3::Database.new "database/#{db_name}.db"
     end
 
     def create_schema
-      # Put your ruby code here to use the @db variable
-      # to setup your schema in the database.
+      puts "Creating schema!!"
+
+      query = <<-CREATESTATEMENT
+        CREATE TABLE tasks (
+          id INTEGER PRIMARY KEY,
+          task TEXT NOT NULL,
+          priority TEXT,
+          status TEXT DEFAULT 'Not Started',
+          date_created TEXT',
+          due_date TEXT,
+          comments BLOB
+        );
+      CREATESTATEMENT
+
+      db.execute('DROP TABLE IF EXISTS tasks;')
+      db.execute(query)
     end
   end
 end
+ TaskList::Database.new.create_schema
