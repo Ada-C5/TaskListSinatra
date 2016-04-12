@@ -14,5 +14,10 @@ class MyApp < Sinatra::Base
     erb :add
   end
 
+  post '/add' do
+    @my_hash = params["tasks"].inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}
+    erb :add
+  end
+
 run!
 end
