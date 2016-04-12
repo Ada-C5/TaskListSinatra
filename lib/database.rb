@@ -2,6 +2,7 @@ require "sqlite3"
 
 module TaskList
   class Database
+    attr_reader :db
 
     def initialize(db_name)
       @db = SQLite3::Database.new(db_name)
