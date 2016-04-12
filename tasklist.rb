@@ -1,7 +1,6 @@
 require 'Sinatra'
-
-class TaskList < Sinatra::Base
-
+require_relative 'lib/database.rb'
+class Task < Sinatra::Base
 
 	get '/' do
 		erb :index
@@ -11,9 +10,11 @@ class TaskList < Sinatra::Base
 		erb :newtask
 	end
 
-	post '/newtask' do 
+	post '/newtask' do
+		@feeding = TaskList::TaskDatabase.new.load!(params)
+
 		erb :index
-		
-	end 
-	run! 
+
+	end
+	run!
 end

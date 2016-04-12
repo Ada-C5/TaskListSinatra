@@ -2,12 +2,18 @@ require "sqlite3"
 
 module TaskList
   class TaskDatabase
-    attr_reader :db 
+    attr_reader :db
 
     def initialize(db_name = "tasks")
-    	# Connects to the database 
+    	# Connects to the database
       @db = SQLite3::Database.new "database/#{db_name}.db"
     end
+
+    # def setup
+    #   create_schema
+    #   load!(hash)
+    # end
+
 
     def create_schema
       puts "Preparing table"
@@ -27,26 +33,21 @@ module TaskList
 
     end
 
-    def load!
+    def load!(hash)
         puts "Preparing INSERT statements"
         insert_statement = <<-QUERY
-            INSERT INTO tasks (title, description, completed) 
-            VALUES (params[:title], params[:description], params[:completed])
-            );
+            INSERT INTO tasks (title, description, completed)
+            VALUES (:title, :description, :completed)
+            ;
         QUERY
         prepared_statement = db.prepare(insert_statement)
 
+        prepared_statement.execute(hash)
 
         puts "Data import complete!"
-    end 
+    end
   end
 end
 
-test = TaskList::TaskDatabase.new
-test.create_schema
-test.load
-
-title = "This is my title"
-description = "This is a great description"
-completed = "I did this stuff last Wednesday"
-
+# test = TaskList::TaskDatabase.new
+# test.create_schema
