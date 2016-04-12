@@ -2,6 +2,21 @@
   <a href="/first_form">Add your task!</a>
 </div>
 
-<div>
-  <%= @results %>
-</div>
+<% if @results %>
+  <div class="result">
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Completed Date</th>
+      </tr>
+      <% @results.each do |row| %>
+        <tr>
+          <td><%= row[1] %></td>
+          <td><%= row[2] %></td>
+          <td><%= row[3] %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% end %>

@@ -4,11 +4,29 @@ html {
 body {
   background: url(../images/pen-paper.jpg) no-repeat center center fixed;
   background-size: cover;
-  color: white;
+  color: black;
   font-size: 1.5rem;
   height: 100%;
 }
 
+.result {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+div {
+  position: relative;
+  padding-bottom: 1rem;
+  overflow-y: scroll;
+}
+
+table {
+  font-size: 1.5rem;
+  border-spacing: 3rem 0.5rem;
+  border: 1px solid red;
+  margin: 5rem auto;
+
+}
 /*
 .header_image {
   align-self: center;
