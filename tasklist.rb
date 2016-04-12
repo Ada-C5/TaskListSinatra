@@ -4,8 +4,9 @@ require_relative 'lib/database'
 
 class TaskApp < Sinatra::Base
 
+  NEW_INTERACTION = TaskList::Interaction.new
+
   get '/' do
-    test_hash
     erb :index
   end
 
@@ -14,15 +15,15 @@ class TaskApp < Sinatra::Base
   end
 
   post '/' do
+    add_task(params)
     erb :index
   end
 
 
 helpers do
-  def test_hash
-  test = {title: "BUY A DOZEN PUPPIES", description: "MOAR PUPPIES"}
-  new_interaction = TaskList::Interaction.new
-  new_interaction.create_task(test)
+  def add_task(hash)
+  # test = {title: "BUY A DOZEN PUPPIES", description: "MOAR PUPPIES"}
+    NEW_INTERACTION.create_task(hash)
   end
 
 end
