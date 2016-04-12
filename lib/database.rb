@@ -40,6 +40,7 @@ module TaskList
   			:title, :description, :date_added, :completed_at
   		);
   		INSERTSTATEMENT
+      # OrderDate datetime NOT NULL DEFAULT GETDATE()
 
   		prepared = @db.prepare(task)
   		prepared.execute(params)
