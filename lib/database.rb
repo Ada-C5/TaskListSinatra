@@ -19,9 +19,8 @@ module TaskList
       query = <<-CREATESTATEMENT
         CREATE TABLE task_list (
           id INTEGER PRIMARY KEY,
-          task_name TEXT NOT NULL,
-          task_status TEXT NOT NULL,
-          due_date TEXT,
+          title TEXT NOT NULL,
+          completed_at TEXT,
           description TEXT,
         );
       CREATESTATEMENT
