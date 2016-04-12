@@ -7,6 +7,7 @@ class TaskApp < Sinatra::Base
   NEW_INTERACTION = TaskList::Interaction.new
 
   get '/' do
+    @all_tasks = NEW_INTERACTION.all_tasks
     erb :index
   end
 
@@ -16,6 +17,7 @@ class TaskApp < Sinatra::Base
 
   post '/' do
     add_task(params)
+    @all_tasks = NEW_INTERACTION.all_tasks
     erb :index
   end
 

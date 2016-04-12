@@ -38,7 +38,13 @@ module TaskList
       db.execute(insert_statement, hash)
     end
 
-    
+    def all_tasks
+      query =<<-QUERY
+        SELECT * FROM tasks;
+      QUERY
+      db.execute(query)
+      # return an array
+    end
 
   end
 end
