@@ -19,4 +19,12 @@ class TaskQueries < TaskList::Queries
     @db.execute(statement, hash)
 
   end
+
+  def display
+    query = <<-DISPLAY
+    SELECT *
+    FROM tasks;
+    DISPLAY
+    @db.execute(query)
+  end
 end
