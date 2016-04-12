@@ -1,7 +1,5 @@
 <% if @task %>
-  <%= @task %>
-  <%= @date_added %>
-  <%= @due_date %>
+  <%= new.new_task!(@title, @description, @date_added, @completed_at) %>
 <% end %>
 
 <div class="params">
@@ -11,15 +9,18 @@
 <fieldset>
     <legend>Enter a task:</legend>
       <form action="" method="post" accept-charset="utf-8">
-        <label for="taskname"></label>
-        <input class="input_area" type="text" name="task" value="" id="taskname">
+        <label for="title"></label>
+        <input class="input_area" type="text" name="title" value="" id="title">
+
+        <label for="description"></label>
+        <input class="input_area" type="text" name="description" value="" id="description">
+        <input class="button" type="submit" value="Add to list">
 <!--
         <label for="dateadded"></label>
         <input class="input_area" type="text" name="task" value="" id="taskname"> -->
 
-        <label for="duedate"></label>
-        <input class="input_area" type="date" name="duedate" value="" id="duedate">
-        <input class="button" type="submit" value="Add to list">
+        <!-- <label for="completed_at"></label>
+        <input class="input_area" type="date" name="completed_at" value="" id="completed_at"> -->
     	</form>
 </fieldset>
 

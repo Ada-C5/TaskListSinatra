@@ -7,9 +7,12 @@ class ToDoList < Sinatra::Base
 	end
 
 	post '/' do
-		@task = params[:task]
+		new = TaskList::ToDoItems.new
+		new.create_schema!
+		@title = params[:task]
+		@description = params[:description]
 		@date_added = Time.now
-		@due_date = params[:duedate]
+		@completed_at = params[:completed_at]
 		erb :index
 	end
 	run!
