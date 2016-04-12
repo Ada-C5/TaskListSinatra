@@ -24,7 +24,7 @@ module TaskList
   end
 
   class TaskQueries < Database
-    def insert_task
+    def insert_task(hash)
       insert_statement = <<-INSERTSTATEMENT
         INSERT INTO tasks(
           title, description, completed_at
@@ -34,10 +34,16 @@ module TaskList
         INSERTSTATEMENT
 
         prepared_statement = @db.prepare(insert_statement)
+        prepared_statement.execute(hash)
+
     end
 
-    def select_task
+    
 
+    def select_task
+      @db.execute <<-HERE
+      SELECT * FROM tasks;
+      HERE
     end
   end
 end
@@ -45,4 +51,5 @@ end
 #
 # include inserting new tasks into the database,
 # and selecting existing tasks from the database.
-TaskList::Database.new.create_schema
+# TaskList::Database.new.create_schema
+ puts TaskList::TaskQueries.new.select_task

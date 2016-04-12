@@ -16,6 +16,7 @@ class MyApp < Sinatra::Base
 
   post '/add' do
     @my_hash = params["tasks"].inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}
+    TaskList::TaskQueries.new.insert_task(@my_hash)
     erb :add
   end
 
