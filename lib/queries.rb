@@ -4,12 +4,12 @@ require "sqlite3"
 class TaskList::Queries
   attr_reader :db
   def initialize(dbname = "task_list")
-    @db = SQLite3::Database.new "databases/#{dbname}.db"
+    @db = SQLite3::Database.new "database/#{dbname}.db"
   end
 
 end
 
-class TaskQueries < TaskList::Queries
+class TaskList::TaskQueries < TaskList::Queries
 
   def load!(hash)
     statement = <<-STATEMENT

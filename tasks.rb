@@ -21,7 +21,7 @@ class Tasks < Sinatra::Base
     @create = TaskList::TaskQueries.new
     @create.load!(params)
     erb :create_task
-    # redirect '/'
+    redirect '/'
   end
   run!
 end
