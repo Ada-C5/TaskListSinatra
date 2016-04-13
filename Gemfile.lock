@@ -1,6 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    chronic (0.10.2)
     coderay (1.1.1)
     daemons (1.2.3)
     eventmachine (1.2.0.1)
@@ -37,6 +38,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  chronic (~> 0.10.2)
   pry (= 0.10.3)
   rerun (~> 0.11.0)
   sinatra (~> 1.4.7)

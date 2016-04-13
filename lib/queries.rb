@@ -1,5 +1,6 @@
 require 'sqlite3'
 require_relative 'database'
+require 'chronic'
 
 class Queries < TaskList::Database
   attr_reader :db

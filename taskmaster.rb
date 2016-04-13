@@ -1,5 +1,6 @@
 require 'sinatra'
 require_relative 'lib/queries'
+require 'chronic'
 
 class TaskMaster < Sinatra::Base
 
@@ -14,8 +15,7 @@ class TaskMaster < Sinatra::Base
 
 
   post "/" do
-    @input = Queries.new.add_task(params[:task], params[:priority], "Not Started", "#{Time.now}", params[:due_date], params[:comments])
-    # puts "#{@input}"
+    @input = Queries.new.add_task(params[:task], params[:priority], "Not Started", "#{Time.now}", "#{Chronic.parse(params[:due_date])}", params[:comments])
     @all_tasks = Queries.new.display_tasks
     erb :index
   end
