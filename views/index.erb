@@ -4,8 +4,8 @@
 <div class="task-list">
 <!-- <%= params %> <br /> -->
 
-<% if @feeding %>
-<%= @feeding %>
-<% end %>
+
+<% @query = Queries.new %>
+<%=	@query.show_all_tasks %>
 
 </div>
