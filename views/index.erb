@@ -12,7 +12,7 @@
 	<td><%= item %> </td>
 	<% end %>
 
-	<td><form method="post" action="/update">
+	<td><form method="post" action="/update/<%= array[0] %>">
       <input type="hidden" name="<%= array[0] %>" value="">
             <input type='submit' value='Update!'>
           </form></td>

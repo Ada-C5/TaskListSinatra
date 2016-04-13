@@ -21,13 +21,21 @@ class MyApp < Sinatra::Base
     erb :add
   end
 
-  post '/update' do
+  post '/update/:id' do
     @id = params.keys[0].to_i
     @task = TaskList::TaskQueries.new.find_by_id(@id).flatten
     #pull correct task from databse based on @id
     # find_by_id(id_num)
     erb :update
   end
+
+  post '/update' do
+    @new_params = params
+    @my_hash = params["tasks"].inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}
+    TaskList::TaskQueries.new.update_task(@my_hash)
+    erb :updated
+  end
+
 
   post '/add' do
     @my_hash = params["tasks"].inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}

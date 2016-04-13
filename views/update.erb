@@ -1,15 +1,16 @@
 <section>
 	<div>
-		<%= params %>
-		<%= @my_hash%>
-    <%= @id%>
-    <%= @task%>
+	Params = 	<%= params %><br>
+	My Hash = 	<%= @my_hash%><br>
+    ID = 	<%= @id%><br>
+    Task =	<%= @task%><br>
+    New params = <%= @new_params%><br>
 
 	</div>
 
 	<fieldset>
 	<legend>Update a Task</legend>
-		<form action="" method="post" accept-charset="utf-8">
+		<form action="/update" method="post" accept-charset="utf-8">
 		  <label for="title">Title</label>
 		  <input type="text" name="tasks[title]" value="<%= @task[0] %>" id="title">
 
