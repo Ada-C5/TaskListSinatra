@@ -4,4 +4,17 @@ html {
 
 .container {
   background-color: white;
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-bottom: 2em;
+  margin-left: 4em;
+  margin-right: 4em;
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, .5);
+}
+
+.tack {
+  height: 50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }

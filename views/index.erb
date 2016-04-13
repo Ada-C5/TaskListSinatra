@@ -1,15 +1,15 @@
-<p>
-  Welcome to your to-do list! Your tasks are:
 
+  <h2> Welcome to your to-do list! Your tasks are: </h2>
 
+<div class = "tasklist">
   <% mytasks = TaskHandler.new %>
   <% if mytasks == nil %>
   <%= puts "You have no tasks to list." %>
   <% else %>
   <%= "#{mytasks.list_all}" %>
   <% end %>
-</p>
+</div>
 
-<p>
+<div class = "call_to_action">
   Would you like to add a new task? <a href="/addtask">Click here!</a>
-</p>
+</div>
