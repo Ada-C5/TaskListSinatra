@@ -5,6 +5,7 @@ class ToDoList < Sinatra::Base
 	get '/' do
 		@page_title = "Task List"
 		@random = TaskList::ToDoItems.new
+		@random.create_schema!
 		@show = @random.show_all
 		erb :index
 	end

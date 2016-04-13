@@ -1,1 +1,15 @@
-<%= @show %>
+<ul>
+  <li>Tasks</li>
+  <li>Description</li>
+  <li>Date Added</li>
+  <li>Date Completed</li>
+</ul>
+
+<% @show.length.times do |index| %>
+<ul>
+  <li><%=@show[index][1]%></li>
+  <li><%=@show[index][2]%></li>
+  <li><%=@show[index][3]%></li>
+  <li><%=@show[index][4]%></li>
+</ul>
+<%end%>
