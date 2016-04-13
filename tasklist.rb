@@ -15,10 +15,22 @@ class TaskApp < Sinatra::Base
     erb :create_task
   end
 
+  get '/create-task/:number' do
+    id = params["number"]
+    @edit_task = NEW_INTERACTION.find_task(id)
+    erb :create_task
+  end
+
   post '/' do
     add_task(params)
     @all_tasks = NEW_INTERACTION.all_tasks
     erb :index
+  end
+
+  post '/:number' do
+    id = params["number"]
+    @updated_task = NEW_INTERACTION.update_task(params[:title], params[:description], id)
+    redirect to('/')
   end
 
   get '/delete-task/:number' do

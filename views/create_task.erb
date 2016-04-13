@@ -1,6 +1,7 @@
 
-<form action="/" method="post">
-  <label><input name="title" value="" type="text" placeholder="Buy a dozen puppies" />Title</label>
-  <label><textarea name="description" value="" placeholder="An optional description of the task"></textarea>Description</label>
+<form action="<%= @edit_task ? "/#{@edit_task[0]}" : "/" %>" method="post">
+  <label>Title<input name="title" value="<%= @edit_task[1] if @edit_task %>" type="text" placeholder="Buy a dozen puppies" /></label>
+  <label>Description<textarea name="description" placeholder="An optional description of the task"><%= @edit_task[2] if @edit_task %></textarea></label>
  <input type="submit" value="YAY" />
 </form>
+<%= @edit_task %>

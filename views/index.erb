@@ -6,10 +6,9 @@
     <%=task_array[2] %>
   </p>
   <%#put checkbox here!%>
-  <form>
-    <input type="hidden" name="id" value="<%=task_array[0]%>">
-  </form>
-  <a href='/delete-task/<%=task_array[0]%>'>DELETE</a> #ADD NUMBER SPECIFICTY in iteration
+  <%# <form><input type="hidden" name="id" value="<%=task_array[0] >"></form> %>
+  <a href='/delete-task/<%=task_array[0]%>'>DELETE</a> <%#ADD NUMBER SPECIFICTY in iteration%>
+  <a href='/create-task/<%=task_array[0]%>'>EDIT</a> <%#ADD NUMBER SPECIFICTY in iteration%>
   <%end%>
 </div>
 <%= params%>

@@ -47,9 +47,34 @@ module TaskList
     end
 
     def delete(id)
-
       db.execute("DELETE FROM tasks WHERE id=?;", id)
+    end
 
+    def find_task(id)
+      query =<<-QUERY
+        SELECT * FROM tasks
+        WHERE id = ?;
+      QUERY
+      db.get_first_row(query, id)
+    end
+
+    def update_task(title, description, id)
+      query =<<-QUERY
+        UPDATE tasks SET title = ?, description = ?
+        WHERE id = ?;
+      QUERY
+
+      db.execute(query, title, description, id)
     end
   end
 end
+
+
+
+
+
+
+
+
+
+#
