@@ -10,3 +10,41 @@ table, th, td {
    padding: .8rem;
    margin: auto;
 }
+
+form {
+  background-color: lime;
+  border: 2px solid black;
+  text-align: left;
+  font-size: 2rem;
+}
+
+fieldset {
+  display:inline-block;
+  width: 50%;
+  font-size: 1rem
+}
+
+div.item {
+  display: block;
+  height: 3rem;
+  padding: 1rem;
+}
+
+input {
+  font-size: 1.5rem;
+  /*width: 30%;*/
+  padding: .5rem;
+}
+
+label.radio {
+  padding: 64px;
+}
+
+input.button {
+  background-color:lightblue;
+  width: auto;
+  padding: 1rem;
+  margin: 1rem;
+  color:white;
+  border-radius: 3px;
+}

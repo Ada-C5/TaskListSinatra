@@ -1,18 +1,26 @@
 <form action="/" method="post" accept-charset="utf-8">
-  <label for="task">Task</label>
-  <input type="text" name="task" value="" id="task"/>
-  <label for="priority">Priority</label>
-  <fieldset>
-    <label><input type="radio" name="priority" value="high"/>High</label>
-    <label><input type="radio" name="priority" value="medium"/>Medium</label>
-    <label><input type="radio" name="priority" value="low"/>Low</label>
-  </fieldset>
-  <label for="due_date">Due Date</label>
-  <input type="text" name="due_date" value="" id="due_date"/>
-  <label for="comments">Comments</label>
-  <input type="text" name="comments" value="" id="comments"/>
-  <input class="button" type="submit" value="Add Task"/>
+  <div class ="item">
+    <label for="task">Task</label>
+    <input type="text" name="task" value="" id="task"/>
+  </div>
+  <div class="item">
+    <label for="priority">Priority</label>
+    <fieldset>
+      <label class = "radio"><input  type="radio" name="priority" value="high"/>High</label>
+      <label class = "radio"><input type="radio" name="priority" value="medium"/>Medium</label>
+      <label class = "radio"><input type="radio" name="priority" value="low"/>Low</label>
+    </fieldset>
+  </div>
+  <div class="item">
+    <label for="due_date">Due Date</label>
+    <input type="text" name="due_date" value="" id="due_date"/>
+  </div>
+  <div class="item">
+    <label for="comments">Comments</label>
+    <input type="text" name="comments" value="" id="comments"/>
+  </div>
 </form>
+<input class="button" type="submit" value="Add Task"/>
 
 <div class="params">
   <%= params %>
