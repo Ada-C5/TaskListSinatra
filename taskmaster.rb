@@ -4,6 +4,7 @@ require_relative 'lib/queries'
 class TaskMaster < Sinatra::Base
 
   get "/" do
+    @all_tasks = Queries.new.display_tasks
     erb :index
   end
 
