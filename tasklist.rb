@@ -25,7 +25,7 @@ class TaskApp < Sinatra::Base
     @all_tasks = NEW_INTERACTION.all_tasks
     id = params["number"]
     NEW_INTERACTION.delete(id)
-    erb :index
+    redirect to('/')
   end
 
 
