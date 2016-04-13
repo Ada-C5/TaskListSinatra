@@ -8,18 +8,24 @@ class Task < Sinatra::Base
 		erb :index
 	end
 
-	post '/' do 
-
-	end 
+	post '/' do
+		@feeding = TaskList::TaskDatabase.new.load!(params)
+		erb :index
+	end
 
 	get '/newtask' do
 		erb :newtask
 	end
 
 	post '/newtask' do
-		@feeding = TaskList::TaskDatabase.new.load!(params)
 
 		erb :index
+
+	end
+
+	post '/completed' do
+		
+		erb :completed
 
 	end
 	run!

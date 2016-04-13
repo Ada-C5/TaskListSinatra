@@ -1,0 +1,21 @@
+.task-container {
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    float: left;
+    height: 100px;
+    width: 850px;
+}
+
+.task-item {
+    background-color: rgba(111,174,215,.9);
+    border: 1px solid black;
+    border-radius: 5px;
+    display: inline-block;
+    font-size: 24px;
+    margin: 10px;
+    padding: .4rem;
+    text-align: left;
+    width: 210px;
+
+}
