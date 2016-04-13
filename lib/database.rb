@@ -26,19 +26,7 @@ module TaskList
       # Put your ruby code here to use the @db variable
       # to setup your schema in the database.
     end
-    def insert_statement(params)
 
-
-    insert_statement = <<-INSERTSTATEMENT
-      INSERT INTO albums (
-        label_code, artist, title, label, format, released, date_added
-      ) VALUES (
-        :label_code, :artist, :title, :label, :format, :released, :date_added
-      );
-    INSERTSTATEMENT
-
-    prepared_statement = db.prepare(insert_statement)
-        end
   end
 
 end
