@@ -47,7 +47,7 @@ module TaskList
     end
 
     def delete(id)
-      
+
       db.execute("DELETE FROM tasks WHERE id=?;", id)
 
     end
