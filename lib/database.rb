@@ -29,7 +29,7 @@ module TaskList
         INSERT INTO tasks(
           title, description, completed_at
         ) VALUES (
-          :title, :description, :completed_at
+          :title, :description, "string"
         );
         INSERTSTATEMENT
 
