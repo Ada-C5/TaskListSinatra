@@ -29,7 +29,10 @@ module TaskList
         INSERT INTO tasks(
           title, description, completed_at
         ) VALUES (
-          :title, :description, "string"
+          :title, :description, <form method="post" action="/">
+            <input type="hidden" name="completed" value="">
+            <input type='submit' value='Completed!'>
+          </form>
         );
         INSERTSTATEMENT
 
