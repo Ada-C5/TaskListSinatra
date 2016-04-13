@@ -43,12 +43,21 @@ module TaskList
       SELECT id, title, description, completed_at FROM tasks;
       HERE
     end
+
+    def find_by_id(id_num)
+      @db.execute <<-HERE
+      SELECT title, description, completed_at
+      FROM tasks
+      WHERE id = #{id_num};
+      HERE
+    end
+
   end
 end
 
 #
 # include inserting new tasks into the database,
 # and selecting existing tasks from the database.
-TaskList::Database.new.create_schema
+# TaskList::Database.new.create_schema
 
  # puts TaskList::TaskQueries.new.select_task

@@ -22,7 +22,11 @@ class MyApp < Sinatra::Base
   end
 
   post '/update' do
-    erb :add
+    @id = params.keys[0].to_i
+    @task = TaskList::TaskQueries.new.find_by_id(@id).flatten
+    #pull correct task from databse based on @id
+    # find_by_id(id_num)
+    erb :update
   end
 
   post '/add' do
