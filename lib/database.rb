@@ -9,12 +9,12 @@ module TaskList
 
     def create_schema
       query = <<-CREATESTATEMENT
-        CREATE TABLE tasklist (
-          id INTEGER PRIMARY KEY,
-          title TEXT NOT NULL,
-          description TEXT,
-          completed_at TEXT
-        );
+      CREATE TABLE tasklist (
+      id INTEGER PRIMARY KEY,
+      title TEXT NOT NULL,
+      description TEXT,
+      completed_at TEXT
+      );
       CREATESTATEMENT
 
       @db.execute("DROP TABLE IF EXISTS tasklist;")

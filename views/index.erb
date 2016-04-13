@@ -1,14 +1,15 @@
-<body>
+<p>
+  Welcome to your to-do list! Your tasks are:
 
+
+  <% mytasks = TaskHandler.new %>
+  <% if mytasks == nil %>
+  <%= puts "You have no tasks to list." %>
+  <% else %>
+  <%= "#{mytasks.list_all}" %>
+  <% end %>
+</p>
 
 <p>
-  This is the index.
-  <%= params %>
+  Would you like to add a new task? <a href="/addtask">Click here!</a>
 </p>
-<!-- <% mytasks = TaskHandler.new %> -->
-<!-- <% if mytasks == nil %>
-<%= puts "You have no tasks to list." %>
-<% else %> -->
-<%= "#{mytasks.list_all}" %>
-<!-- <% end %> -->
-</body>
