@@ -21,6 +21,13 @@ class TaskApp < Sinatra::Base
     erb :index
   end
 
+  get '/delete-task/:number' do
+    @all_tasks = NEW_INTERACTION.all_tasks
+    id = params["number"]
+    NEW_INTERACTION.delete(id)
+    erb :index
+  end
+
 
 helpers do
   def add_task(hash)
