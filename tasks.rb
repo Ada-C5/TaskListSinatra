@@ -5,6 +5,8 @@ require_relative 'lib/queries'
 
 class Tasks < Sinatra::Base
   get '/' do
+    @create = TaskList::TaskQueries.new.display
+    #@create.display
     erb :index
   end
 
