@@ -9,6 +9,11 @@ class TaskMaster < Sinatra::Base
     erb :index
   end
 
+  post "/delete" do
+    @delete = Queries.new.delete_task(params[:task_id].to_i)
+    redirect '/'
+  end
+
   get "/add" do
     erb :add
   end

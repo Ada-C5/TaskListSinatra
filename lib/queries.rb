@@ -31,6 +31,10 @@ class Queries < TaskList::Database
 
   end
 
+  def delete_task(id)
+    db.execute("DELETE FROM tasks WHERE id = ?", id)
+  end
+
   def select_by_date_created(direction) #asc or desc
   end
 
