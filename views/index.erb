@@ -1,13 +1,32 @@
 
-  <h2> Welcome to your to-do list! Your tasks are: </h2>
+  <h1> Welcome to your to-do list! Your tasks are: </h1>
 
 <div class = "tasklist">
   <% mytasks = TaskHandler.new %>
   <% if mytasks == nil %>
   <%= puts "You have no tasks to list." %>
   <% else %>
-  <%= "#{mytasks.list_all}" %>
+  <% tasks = mytasks.list_all %>
   <% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Completed on</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% tasks.each do |task| %>
+  <tr>
+    <td><%= task[1] %></td>
+    <td><%= task[2] %></td>
+    <td><%= task[3] %></td>
+  </tr>
+  <% end %>
+    </tbody>
+</table>
 </div>
 
 <div class = "call_to_action">
