@@ -19,15 +19,13 @@ class Queries
   	db.execute(query)
   end
 
-	def completed_task
+	def completed_task(id)
 		query = <<-QUERY
-
-  	UPDATE posts SET completed="COMPLETED" WHERE id = @id;
+  	UPDATE tasks SET completed="COMPLETED" WHERE id = #{id};
   	FROM tasks;
   	QUERY
 
   	db.execute(query)
-
 	end
 
 end

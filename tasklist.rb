@@ -23,8 +23,14 @@ class Task < Sinatra::Base
 
 	end
 
+	get '/completed' do
+
+	erb :completed
+
+	end
+
 	post '/completed' do
-		
+		@primary_keyy = params['completed_check']
 		erb :completed
 
 	end

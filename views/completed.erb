@@ -1,0 +1,5 @@
+<% if @primary_keyy%>
+<% @query = Queries.new %>
+<% comp_task = @query.completed_task(@primary_keyy) %>
+<p> completed task </p>
+<% end%>
