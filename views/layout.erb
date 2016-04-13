@@ -1,7 +1,32 @@
-<h1>HEADER</h1>
+<!DOCTYPE html>
+<html>
 
-<main>
-  <%= yield %>
-</main>
+  <head>
+    <title>Task List</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="css" href="stylesheets/styles.css">
+  </head>
 
-<h2>FOOTER</h2>
+  <body>
+    <header>
+      <h1>Task List</h1>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/tasks">Tasks</a><li>
+      </ul>
+    </nav>
+
+    <article>
+      <%= yield %>
+    </article>
+
+    <footer>
+      <p>TaskList, LLC</p>
+    </footer>
+
+  </body>
+
+</html>

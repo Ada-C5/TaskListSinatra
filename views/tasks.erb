@@ -1,26 +1,57 @@
 <!-- create new task -->
 <article>
-  <h1>Hello</h1>
-<%= params %>
 <!-- add task  ------------------------------------------>
+
   <form action="" method="post" acet-charset="utf-8">
-    <label class="form_label" for="user_word"></label>
-    <input type="text" name=task_hash[title] value="Input Word Here" id="user_word">
-    <input type="textarea" name=task_hash[description] value="Input Word Here" id="user_word">
-    <input type="text" name=task_hash[completed_at] value="Input Word Here" id="user_word">
-    <input type="submit"  value="" name="add_task" id="submit">
+    <fieldset>
+      <legend>Create A Task</legend>
+      <label class="form_label" for="user_word"></label>
+      <input type="text" name=task_hash[title] value="Input Word Here" id="user_word">
+      <input type="textarea" name=task_hash[description] value="Input Word Here" id="user_word">
+      <input type="text" name=task_hash[completed_at] value="Input Word Here" id="user_word">
+      <input type="submit"  value="" name="add_task" id="submit">
+    </fieldset>
   </form>
 
 <!-- search  ------------------------------------------>
 
   <form action="" method="post" acet-charset="utf-8">
-    <label class="form_label" for="user_word"></label>
-    <input type="text" name="text" value="Input Word Here" id="user_word">
-    <input type="submit"  value="" name="search" id="submit">
+    <fieldset>
+      <legend>Find Tasks</legend>
+      <label class="form_label" for="user_word"></label>
+      <input type="text" name="text" value="Input Word Here" id="user_word">
+      <input type="submit"  value="" name="search" id="submit">
+    </fieldset>
   </form>
 
-<!-- PRINT RESULTS  ------------------------------------------>
+  <% if @search_results %>
+      <table>
+        <th>
+          <tr colspan=4>Search Results </tr>
+        </th>
+        <tr>
+          <td>No.</td>
+          <td>Task Name</td>
+          <td>Description</td>
+          <td>Status</td>
+          <td>Primary Key</td>
+        </tr>
+        <% index = 1 %>
+        <% @search_results.each do |result| %>
+          <tr>
+            <td><%= index %></td>
+            <td><%= result[1] %></td>
+            <td><%= result[2] %></td>
+            <td><%= result[3] %></td>
+            <td><%= result[0] %></td>
+          </tr>
+          <% index += 1 %>
+        <% end %>
+      </table>
+  <% end %>
 
+
+  <!-- PRINT RESULTS  ------------------------------------------>
   <% if @all_tasks %>
       <table>
         <th>
@@ -41,33 +72,7 @@
             <td><%= task[2] %></td>
             <td><%= task[3] %></td>
             <td><%= task[0] %></td>
-          </tr><br>
-          <% index += 1 %>
-        <% end %>
-      </table>
-  <% end %>
-
-
-  <% if @search_results %>
-      <table>
-        <th>
-          <tr colspan=4>Search Results </tr>
-        </th>
-        <tr>
-          <td>No.</td>
-          <td>Task Name</td>
-          <td>Description</td>
-          <td>Status</td>
-          <td>Primary Key</td>
-        </tr>
-        <% index = 1 %>
-        <%= @search_results%>
-
-        <% @search_results.each do |result| %>
-          <tr>
-            <td><%= result %></td>
-
-          </tr><br>
+          </tr>
           <% index += 1 %>
         <% end %>
       </table>
