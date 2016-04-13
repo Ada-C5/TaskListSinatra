@@ -33,13 +33,18 @@ class TaskApp < Sinatra::Base
     redirect to('/')
   end
 
-  get '/delete-task/:number' do
+  get '/delete-task/:number' do #Should be a destructive method, we dunno how
     @all_tasks = NEW_INTERACTION.all_tasks
     id = params["number"]
     NEW_INTERACTION.delete(id)
     redirect to('/')
   end
 
+  get '/completed/:number' do
+    id = params["number"]
+    NEW_INTERACTION.completed(id)
+    redirect to('/')
+  end
 
 helpers do
   def add_task(hash)

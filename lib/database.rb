@@ -66,6 +66,15 @@ module TaskList
 
       db.execute(query, title, description, id)
     end
+
+    def completed(id)
+      query =<<-QUERY
+        UPDATE tasks SET completed_at = CURRENT_TIMESTAMP
+        WHERE id = ?;
+      QUERY
+
+      db.execute(query, id)
+    end
   end
 end
 

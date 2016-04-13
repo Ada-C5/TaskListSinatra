@@ -1,0 +1,9 @@
+.completed {
+  text-decoration: line-through;
+}
+
+.checkbox {
+  height: 2rem;
+  width: 2rem;
+  background-color: #999;
+}
