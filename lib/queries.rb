@@ -8,6 +8,10 @@ class Queries < TaskList::Database
     @db = SQLite3::Database.new "database/#{db_name}.db"
   end
 
+  def display_tasks
+    db.execute("select * from tasks;")
+  end
+
   def add_task(task, priority, status, date_created, due_date, comments)
     query = <<-QUERY
     INSERT INTO tasks (task, priority, status, date_created, due_date, comments)

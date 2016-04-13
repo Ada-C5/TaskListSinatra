@@ -9,7 +9,7 @@ module TaskList
     end
 
     def create_schema
-      puts "Creating schema!!"
+      puts "Creating schema!"
 
       query = <<-CREATESTATEMENT
         CREATE TABLE tasks (
@@ -28,4 +28,4 @@ module TaskList
     end
   end
 end
- TaskList::Database.new.create_schema
+ # TaskList::Database.new.create_schema
