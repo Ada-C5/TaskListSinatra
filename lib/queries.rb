@@ -19,13 +19,24 @@ class Queries
   	db.execute(query)
   end
 
+# This is broken, how to make the query do the thing 
 	def completed_task(id)
-		query = <<-QUERY
-  	UPDATE tasks SET completed="COMPLETED" WHERE id = #{id};
-  	FROM tasks;
-  	QUERY
+		query =
+  	"UPDATE tasks SET completed=\"COMPLETED\" WHERE id =" + #{id} + ";" 
 
   	db.execute(query)
 	end
+
+  def show_completed_tasks
+    query = <<-QUERY
+
+    SELECT id, title, description, completed
+    FROM tasks
+    WHERE completed = 'COMPLETED';
+    QUERY
+
+    db.execute(query)
+
+  end 
 
 end

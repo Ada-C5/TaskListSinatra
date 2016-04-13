@@ -30,7 +30,7 @@ class Task < Sinatra::Base
 	end
 
 	post '/completed' do
-		@primary_keyy = params['completed_check']
+		@primary_keyy = params['completed_check'].to_i
 		erb :completed
 
 	end

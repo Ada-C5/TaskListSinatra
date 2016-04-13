@@ -1,37 +1,25 @@
-<h1> <a href = "newtask"> New task </a> </h1>
-
-
-<div class="task-list">
-<!-- <%= params %> <br /> -->
-
-
 <% @query = Queries.new %>
 <% alltasks=	@query.show_all_tasks %>
 
 <div class="task-container">
-
-<% alltasks.each do |task| %>
-<div class="task-item"> <p><% @id = task[0] %>
-  <br>
-  <%= task[1] %>
-<br>
-<%= task[2] %>
-<br>
-<%= task[3] %>
-
-
-<form action="/completed" method="post" accept-charset="utf-8">
-  <fieldset>
-  <legend>completed this task?</legend>
-    <input type="checkbox" name="completed_check" value="<%= @id %>" />YES!! completed <br />
-    <input type="submit" value="Submit" />
-</fieldset>
-</form>
-
-</p>
-</div>
-<% end %>
-</div>
-
-
+	<% alltasks.each do |task| %>
+		<div class="task-item"> 
+			<p>
+				<% @id = task[0] %>
+			  <br>
+			  <%= task[1] %>
+				<br>
+				<%= task[2] %>
+				<br>
+				<%= task[3] %>
+				<form action="/completed" method="post" accept-charset="utf-8">
+				  <fieldset>
+				  <legend>completed this task?</legend>
+				    <input type="checkbox" name="completed_check" value="<%= @id %>" />YES!! completed <br />
+				    <input type="submit" value="Submit" />
+					</fieldset>
+				</form>
+			</p>
+		</div>
+	<% end %>
 </div>
