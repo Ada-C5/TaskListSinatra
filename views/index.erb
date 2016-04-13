@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>index</title>
+  <title>Tasks Home</title>
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
 </head>
 <body>
 
 <h1>Travel Tasks!</h1>
-<h2>Title</h2>
-<h2>description</h2>
-<h2> complete by</h2>
-<%if @create%>
-<%@create.each do |element|%>
-      <%element.each do |key,value|%>
-      <%=key%>
-      <%end%>
 
-    <%end%>
-<%end%>
+<br>
+<table>
+  <tr>
+    <th><h2>Task Number</h2></th>
+    <th><h2>Task Title</h2></th>
+    <th><h2>Description</h2></th>
+    <th><h2>Complete By:</h2></th>
+  
+   <td>
+     <%if @create%>
+     <%@create.each do |element|%>
+           <%element.each do |key,value|%>
+           <p class="keys"><%=key%></p>
+           <%end%>
+         <%end%>
+     <%end%>
+   </td>
+ </tr>
+</table>
 
+<br>
 <a href="/create_task"> Creat a new Task!</a>
 
 

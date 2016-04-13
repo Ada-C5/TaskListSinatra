@@ -6,22 +6,16 @@ require_relative 'lib/queries'
 class Tasks < Sinatra::Base
   get '/' do
     @create = TaskList::TaskQueries.new.display
-    #@create.display
+    @create.display
     erb :index
   end
-
-  # post '/' do
-  #   # @display = TaskList::TaskQueries.new
-  #   @create.display
-  # end
 
   get '/create_task' do
     erb :create_task
   end
 
   post '/create_task' do
-    @create = TaskList::TaskQueries.new
-    @create.load!(params)
+    @create = TaskList::TaskQueries.new.load!(params)
     erb :create_task
     redirect '/'
   end

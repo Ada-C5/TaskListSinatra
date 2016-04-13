@@ -12,7 +12,7 @@ module TaskList
 
     query = <<-CREATSTATEMENT
     CREATE TABLE tasks(
-    id INTERGER PRIMARY KEY,
+    id INTEGER PRIMARY KEY,
     title  TEXT NOT NULL,
     description TEXT,
     completed_at TEXT
@@ -23,8 +23,6 @@ module TaskList
     @db.execute("DROP TABLE IF EXISTS tasks;")
     @db.execute(query)
 
-      # Put your ruby code here to use the @db variable
-      # to setup your schema in the database.
     end
 
   end
@@ -32,5 +30,5 @@ module TaskList
 end
 
 
-release_db = TaskList::Database.new
-release_db.create_schema
+# task_db = TaskList::Database.new
+# task_db.create_schema

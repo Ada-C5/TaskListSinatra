@@ -16,6 +16,7 @@ class TaskList::TaskQueries < TaskList::Queries
     INSERT INTO tasks (title, description,completed_at)
     VALUES (:title, :description, :completed_at);
     STATEMENT
+    prepared_statement = @db.prepare(statement)
     @db.execute(statement, hash)
 
   end
