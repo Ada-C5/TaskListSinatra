@@ -75,6 +75,10 @@ module TaskList
 
       db.execute(query, id)
     end
+
+    def uncompleted(id)
+      db.execute("UPDATE tasks SET completed_at = NULL WHERE id=?;", id)
+    end
   end
 end
 

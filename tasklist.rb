@@ -46,6 +46,12 @@ class TaskApp < Sinatra::Base
     redirect to('/')
   end
 
+  get '/uncompleted/:number' do
+    id = params["number"]
+    NEW_INTERACTION.uncompleted(id)
+    redirect to('/')
+  end
+
 helpers do
   def add_task(hash)
   # test = {title: "BUY A DOZEN PUPPIES", description: "MOAR PUPPIES"}

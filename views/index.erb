@@ -3,13 +3,12 @@
 <% @all_tasks.each do |task_array|%>
   <div class = "<%= "completed" if (task_array[3] != nil) %>">
     <h2 class="title"><%=task_array[1]%></h2>
-    <%= task_array[3] %>
 
   <p class="description">
     <%=task_array[2] %>
   </p>
 
-  <a href= '/completed/<%=task_array[0]%>'><div class = "checkbox">
+  <a href= '/<%= "un" if (task_array[3] != nil) %>completed/<%=task_array[0]%>'><div class = "checkbox">
   </div></a>
 
   <%#put checkbox here!%>
