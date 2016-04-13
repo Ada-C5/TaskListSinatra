@@ -1,0 +1,14 @@
+<div class="params">
+  <%= params %>
+</div>
+
+<h1>Update the Tasklist</h1>
+
+<form action="/tasks/<%= @my_edit %>" method="post">
+  <input name="_method" type="hidden" value="put">
+
+  <label for="date">Add completed date:</label>
+  <input id="date" name="date" type="text">
+
+  <button type="submit">Update</button>
+</form>

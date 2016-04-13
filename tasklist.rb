@@ -21,5 +21,31 @@ class MyApp < Sinatra::Base
     redirect '/'
   end
 
+  get '/tasks/edit/:id' do
+    @my_edit = params[:id]
+    erb :list_edit
+  end
+
+  get '/tasks/:id' do
+    redirect '/'
+  end
+
+  put '/tasks/:id' do
+    @my_edit = params[:id]
+    @my_update = params["date"]
+    @task = Task_Maintenance.get_entry(@my_edit)
+    redirect '/'
+  end
+  # post '/delete/:id' do
+  # if params.has_key?("ok")
+  #   item = Item.first(:id => params[:id])
+  #   item.destroy
+  #   redirect '/'
+  # else
+  #   redirect '/'
+  # end
+# end
+
+
   run!
 end
