@@ -16,7 +16,7 @@ module TaskList
       id INTEGER PRIMARY KEY,
       title TEXT NOT NULL,
       description TEXT,
-      date_added TEXT,
+      date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
       completed_at TEXT
       );
     	CREATESTATEMENT
@@ -35,9 +35,9 @@ module TaskList
   	def new_task!(params)
   		task= <<-INSERTSTATEMENT
   		INSERT INTO todo(
-  			title, description, date_added, completed_at
+  			title, description,  completed_at
   		) VALUES (
-  			:title, :description, :date_added, :completed_at
+  			:title, :description, :completed_at
   		);
   		INSERTSTATEMENT
       # OrderDate datetime NOT NULL DEFAULT GETDATE()

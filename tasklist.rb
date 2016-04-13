@@ -10,6 +10,12 @@ class ToDoList < Sinatra::Base
 		erb :index
 	end
 
+	post '/' do
+		@random = TaskList::ToDoItems.new
+		@random.create_schema!
+		@random.new_task!(params)
+		erb :index
+	end
 	get '/new_task' do
 		@page_title = "New Task"
 		erb :new_task
