@@ -48,13 +48,5 @@ module TaskList
 
     end
 
-    def find_task
-
-    end
-
-    def print_data
-      @db.execute("SELECT * FROM task_list;")
-    end
-
   end
 end

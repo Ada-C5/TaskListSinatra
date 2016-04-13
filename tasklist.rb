@@ -1,24 +1,39 @@
 require 'sinatra'
-require_relative 'lib/database.rb'
+# require_relative 'lib/database.rb'
+require_relative 'lib/tasks.rb'
+
 
 class Tasklist < Sinatra::Base
+
 
   get '/' do
     erb :index
   end
 
   get '/tasks' do
+    @tasks = Tasks.new
+    @all_tasks = @tasks.print_data
     erb :tasks
   end
 
   post '/tasks' do
-    # database = TaskList::Database.new
+    @tasks = Tasks.new
 
-    @new_task = params["task_hash"]
-    task_list = TaskList::TaskRecord.new
-    task_list.new_task(@new_task)
 
-    @all_tasks = task_list.print_data
+    if params["add_task"]
+    # create new task
+
+      @new_task = params["task_hash"]
+      @tasks.new_task(@new_task)
+      @all_tasks = @tasks.print_data
+
+    elsif params["search"]
+    # find task
+      search = params["text"]
+      @search_results = @tasks.find(search)
+
+    end
+
     erb :tasks
   end
 
