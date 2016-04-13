@@ -1,5 +1,25 @@
 <h1>Coming Soon!</h1>
 <!-- <img src="images/construction.gif" alt="Construction worker"/> -->
-<p>damn ittttt
-  <%=  @all_tasks %>
-</p>
+
+<section>
+  <% if @all_tasks %>
+  <table>
+    <tr>
+      <td>ID</td>
+      <td>Task</td>
+      <td>Priority</td>
+      <td>Status</td>
+      <td>Date Created</td>
+      <td>Due Date</td>
+      <td>Comments</td>
+    </tr>
+    <tr>
+      <% @all_tasks.each do |value| %>
+    </tr>
+    <% value.each do |index| %>
+      <td><%= index %></td>
+    <% end %>
+    <% end %>
+  </table>
+  <% end %>
+</section>
