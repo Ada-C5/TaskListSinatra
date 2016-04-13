@@ -29,10 +29,7 @@ module TaskList
         INSERT INTO tasks(
           title, description, completed_at
         ) VALUES (
-          :title, :description, <form method="post" action="/">
-            <input type="hidden" name="completed" value="">
-            <input type='submit' value='Completed!'>
-          </form>
+          :title, :description, :completed_at
         );
         INSERTSTATEMENT
 
@@ -43,7 +40,7 @@ module TaskList
 
     def select_task
       @db.execute <<-HERE
-      SELECT title, description, completed_at FROM tasks;
+      SELECT id, title, description, completed_at FROM tasks;
       HERE
     end
   end
@@ -52,6 +49,6 @@ end
 #
 # include inserting new tasks into the database,
 # and selecting existing tasks from the database.
-# TaskList::Database.new.create_schema
+TaskList::Database.new.create_schema
 
  # puts TaskList::TaskQueries.new.select_task

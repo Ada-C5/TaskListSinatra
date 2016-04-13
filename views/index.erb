@@ -8,10 +8,14 @@
 	</tr>
 <% @entire_list.each do |array| %>
 <tr>
-
-	<% array.each do |item|%>
+	<% array.drop(1).each do |item|%>
 	<td><%= item %> </td>
 	<% end %>
+
+	<td><form method="post" action="/update">
+      <input type="hidden" name="<%= array[0] %>" value="">
+            <input type='submit' value='Update!'>
+          </form></td>
 </tr>
 <% end %> 
 </table>
