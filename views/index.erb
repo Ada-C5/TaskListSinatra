@@ -1,3 +1,15 @@
 <h1>SUPER AWESOME TO-DO LIST</h1>
 <a href='/create-task'>New task</a>
-<div><%= @all_tasks %></div>
+<div><% @all_tasks.each do |task_array|%>
+  <h2 class="title"><%=task_array[1]%></h2>
+  <p class="description">
+    <%=task_array[2] %>
+  </p>
+  <%#put checkbox here!%>
+  <form>
+    <input type="hidden" name="id" value="<%=task_array[0]%>">
+  </form>
+  <a href='/delete-task/<%=task_array[0]%>'>DELETE</a> #ADD NUMBER SPECIFICTY in iteration
+  <%end%>
+</div>
+<%= params%>
