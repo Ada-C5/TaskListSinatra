@@ -6,6 +6,10 @@ class Tasklistapp < Sinatra::Base
   mytasks = TaskHandler.new
 
   get '/' do
+    if params["deleteid"] != nil
+    mytasks.delete_task(params["deleteid"])
+    end
+
     erb :index
   end
 

@@ -28,12 +28,12 @@ class TaskHandler < TaskList::Database
   end
 
   def update_task(update)
-    @db.execute("UPDATE tasklist SET title = ? WHERE id=?", update[1], update[0])
+    @db.execute("UPDATE tasklist SET title = ?, description = ?, completed_at = ? WHERE id=?", update[1], update[2], update[3], update[0])
   end
 
 
-  def find_task_desc(desc)
-
+  def delete_task(deleteid)
+    @db.execute("DELETE FROM tasklist WHERE id=?", deleteid)
   end
 
 end
