@@ -29,4 +29,32 @@ class Tasks
 
   end
 
+  def complete_task(id)
+
+    current_status = @db.execute("SELECT status FROM task_list WHERE id = #{ id };").first.first
+
+    if current_status == "yes"
+      check = "no"
+    else
+      check = "yes"
+    end
+
+    query = <<-COMPLETE
+      UPDATE task_list SET status = "#{ check }" WHERE id = #{ id };
+    COMPLETE
+
+    @db.execute(query)
+
+  end
+
+  def delete_task(id)
+
+    query = <<-DELETE
+      DELETE FROM task_list WHERE id = #{ id };
+    DELETE
+
+    @db.execute(query)
+
+  end
+
 end

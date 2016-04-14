@@ -17,7 +17,8 @@ module TaskList
           id INTEGER PRIMARY KEY,
           title TEXT NOT NULL,
           description TEXT,
-          completed_at TEXT
+          completed_at TEXT,
+          status TEXT
         );
       CREATESTATEMENT
 
@@ -38,9 +39,9 @@ module TaskList
 
       insert_statement = <<-INSERTSTATEMENT
         INSERT INTO task_list (
-        title, description, completed_at
+        title, description, completed_at, status
         ) VALUES (
-        "#{task["title"]}", "#{task["description"]}", "#{task["completed_at"]}"
+        "#{task["title"]}", "#{task["description"]}", "#{task["completed_at"]}", "no"
         );
       INSERTSTATEMENT
 

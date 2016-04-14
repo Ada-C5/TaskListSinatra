@@ -49,7 +49,7 @@
         <% end %>
       </table>
   <% end %>
-
+<h1><%= params %></h1>
 
   <!-- PRINT RESULTS  ------------------------------------------>
   <% if @all_tasks %>
@@ -65,8 +65,7 @@
           <td>Status</td>
           <td>Delete</td>
         </tr >
-        <form action="" method="post" acet-charset="utf-8">
-          <label for="check_boxes"></label>
+          <label for="checked_boxes"></label>
         <% index = 1 %>
         <% @all_tasks.each do |task| %>
           <tr class="table_row">
@@ -74,10 +73,18 @@
             <td><%= task[1] %></td>
             <td><%= task[2] %></td>
             <td><%= task[3] %></td>
-            <td class="box"><input type="submit" name="completed" value="" id="check_complete_box" /></td>
-            <td class="box2"><input type="submit" name="<%= task[3] %>" value="" id="delete_task_box" /></td>
-            <!-- <td class="box"><input type="submit" name="delete_task_box" value="" id="delete_task_box" /></td> -->
-            <!-- <td class="box2"><input type="submit" name="delete"   value="" id="delete_box" /></td> -->
+            <form action="" method="post" acet-charset="utf-8">
+            <% if task[4] == "yes" %>
+              <td class="completed_box"><input type="submit" name="completed" value="" id="check_complete_box" /></td>
+              <td class="completed_box"><input type="hidden" name="completed" value=<%= task[0] %> id="check_complete_box" /></td>
+            <% else %>
+              <td class="box"><input type="submit" name="submit" value="" id="check_complete_box" /></td>
+              <td class="box"><input type="hidden" name="completed" value=<%= task[0] %> id="check_complete_box" /></td>
+            <% end %>
+          </form>
+          <form action="" method="post" acet-charset="utf-8">
+            <td class="box2"><input type="submit" name="delete_box" value="" id="delete_task_box" /></td>
+            <td class="box2"><input type="hidden" name="delete" value=<%= task[0] %> id="delete_task_box" /></td>
           </form>
           </tr>
           <% index += 1 %>
