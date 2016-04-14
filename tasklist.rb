@@ -36,14 +36,12 @@ class Task < Sinatra::Base
 	end
 
 	get '/deleted' do
-		# @show_completed
-	erb :deleted
+		erb :deleted
 	end
 
 	post '/deleted' do
 		@get_deleted = Queries.new.deleted_task(params[:deleted_check].to_i)
 		erb :completed
-
 	end
 
 

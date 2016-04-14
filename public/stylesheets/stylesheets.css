@@ -1,124 +1,137 @@
 html {
-    background-attachment: fixed;
-    font-family: 'Oswald', sans-serif;
-/*    background-image: url("../images/beach_background.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;*/
+  background-attachment: fixed;
+  background-image: url("../images/notebook-background.png");
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  font-family: 'Oswald', sans-serif;
 }
 
 h1 {
-    text-align: center;
-    font-weight: 400;
+  font-weight: 400;
+  text-align: center;
 }
 
 .main-form label {
-  padding: 0;
   margin: 0;
   margin-right: 10px;
-}
-
-.main-form input {
-  height: 22px;
+  padding: 0;
 }
 
 .both-forms {
-  border: solid red;
-  /*display: inline-block;*/
-  overflow: auto;
-  padding: 0;
   margin: 0;
   margin-top: 20px;
+  overflow: auto;
+  padding: 0;
 }
 
 .check-form, .check-deleted {
-    font-size: 14px;
-    color: #262127;
-    padding: 0;
-    margin: 0;
+  color: #262127;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
 }
 
 .check-form {
   float: left;
-  border: solid green;
-
 }
 
 .check-deleted {
-  border: solid blue;
-float: right;
-}
-
-.submit-button{
-    margin-top: 5px;
-    padding: 10px;
-    color:#D76B88;
+  float: right;
 }
 
 .top-bar {
-    width: 100%;
-    text-align: center;
-    color:#D76B88;
-    font-family: "Monaco";
-    font-size: 16px;
+  color:#D76B88;
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  margin-top: 60px;
+  margin-bottom: 40px;
+  text-align: center;
+  width: 100%;
 }
 
 .top-bar ul {
-    list-style: none;
+  list-style: none;
 }
 
 .top-bar ul li {
-    display: inline;
+  display: inline;
 }
 
 .top-bar a {
-    color:#D76B88;
-    font-size: 32px;
-    padding-top: 10px;
-    padding-right: 30px;
-    padding-left: 30px;
-    padding-bottom: 5px;
-    text-decoration: none;
-}
-
-.top-bar a:hover {
-    color:#9E65A4;
-}
-
-.introduction {
-    color:#4D434F;
-    background-color: rgba(244,244,244,.8);
-    border-radius: 15px;
-    display: block;
-    margin-top: 1%;
-    overflow: auto;
-    margin-right: 20%;
-    margin-left: 20%;
-    margin-bottom: 1%;
-    padding: 2%;
+  color:#D76B88;
+  font-size: 32px;
+  padding-top: 10px;
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-bottom: 5px;
+  text-decoration: none;
 }
 
 .task-container {
-    display: -webkit-flex;
-    display: flex;
-    flex-wrap: wrap;
-    width: 850px;
-    background-color: rgba(244,244,244,.8);
+  background-color: rgba(244,244,244,.7);
+  border-radius: 15px;
+  color:#4D434F;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1%;
+  margin-right: 20%;
+  margin-left: auto;
+  margin-bottom: 1%;
+  overflow: auto;
+  padding: 2%;
+  width: 758px;
+
 }
 
 .task-item {
-    font-weight: 300;
-    background-color: rgba(111,174,215,.9);
-    border: 1px solid #418CA4;
-    border-radius: 5px;
-    display: inline-block;
-    font-size: 24px;
-    margin: 10px;
-    padding: .4rem;
-    text-align: left;
-    width: 210px;
+  background-color: rgba(111,174,215,.9);
+  border-radius: 5px;
+  box-shadow: 5px 5px 2px #7691A3;
+  display: inline-block;
+  font-size: 24px;
+  font-weight: 300;
+  margin: .8rem;
+  padding: .5rem;
+  text-align: left;
+  width: 210px;
+}
 
+.task-description {
+  padding: 1rem;
+}
+
+.submit-button{
+  color:white;
+  margin-top: 5px;
+  padding: 10px;
+}
+
+input[type=submit] {
+  background-color: rgb(6,104,165); 
+  border-radius: 5px; 
+  color:white;
+  cursor:pointer;
+  display: inline-block;
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  margin-top: 5px;
+  margin-left: 10px; 
+  padding:5px 15px 5px 15px; 
+}
+
+input[type=text] {
+    border-radius: 5px; 
+    color:#3F1A08;
+    cursor:pointer;
+    display: inline-block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    margin-top: 5px;
+    margin-left: 10px; 
+    padding:5px 15px; 
 }

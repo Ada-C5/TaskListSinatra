@@ -8,19 +8,21 @@
 			<h1>
 				<%= task[1] %>
 			</h1>
-			<br/>
+			<p class="task-description">
 			<%= task[2] %>
 			<br/>
 			<%= task[3] %>
-
+		</p>
+	<div class"both-forms">
 		<form action="/deleted" method="post" accept-charset="utf-8">
 			<fieldset class="check-deleted">
 				<label>
-					<input type="checkbox" name="deleted_check" value="<%= task[0] %>" />  Delete this<br />
+					<input type="checkbox" name="deleted_check" value="<%= task[0] %>" />  Delete?<br />
 				</label>
-				<input class="submit-button" type="submit" value="Delete Forever" />
+				<input class="submit-button" type="submit" value="Delete" />
 			</fieldset>
 		</form>
+		</div>
 	</div>
 		<% end %>
 	</div>
