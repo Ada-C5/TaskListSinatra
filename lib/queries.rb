@@ -12,27 +12,39 @@ class Queries
   def show_all_tasks
   	query = <<-QUERY
 
-  	SELECT id, title, description, completed
-  	FROM tasks;
+  	SELECT 
+      id, title, description, completed
+  	FROM 
+      tasks
+    WHERE 
+       completed != 'COMPLETED';
   	QUERY
 
   	db.execute(query)
   end
 
-# This is broken, how to make the query do the thing 
-	def completed_task(id)
-		query =
-  	"UPDATE tasks SET completed=\"COMPLETED\" WHERE id =" + #{id} + ";" 
+	def completed_task(primary_key)
+		query = <<-QUERY
+    UPDATE 
+      tasks 
+    SET 
+      completed='COMPLETED' 
+    WHERE id =?;
+    
+    QUERY
 
-  	db.execute(query)
+  	db.execute(query, primary_key)
 	end
 
   def show_completed_tasks
     query = <<-QUERY
 
-    SELECT id, title, description, completed
-    FROM tasks
-    WHERE completed = 'COMPLETED';
+    SELECT 
+      id, title, description, completed
+    FROM 
+      tasks
+    WHERE 
+      completed = 'COMPLETED';
     QUERY
 
     db.execute(query)

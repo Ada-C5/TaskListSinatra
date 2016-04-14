@@ -1,15 +1,88 @@
+html {
+    background-attachment: fixed;
+    font-family: 'Oswald', sans-serif;
+/*    background-image: url("../images/beach_background.jpg");
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;*/
+}
+
+h1 {
+    text-align: center; 
+    font-weight: 400; 
+}
+
+.check-form {
+    font-size: 14px;
+    color: #262127;
+    float: right; 
+    /*border: solid red;*/
+}
+
+.submit-button{
+    margin-top: 5px;
+    padding: 10px;
+    color:#D76B88;
+}
+
+.top-bar {
+    width: 100%;
+    text-align: center;
+    color:#D76B88;
+    font-family: "Monaco";
+    font-size: 16px;
+}
+
+.top-bar ul {
+    list-style: none;
+}
+
+.top-bar ul li {
+    display: inline; 
+}
+
+.top-bar a { 
+    color:#D76B88;
+    font-size: 32px; 
+    padding-top: 10px;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-bottom: 5px; 
+    text-decoration: none;
+}
+
+.top-bar a:hover {
+    color:#9E65A4;
+}
+
+.introduction {
+    color:#4D434F;
+    background-color: rgba(244,244,244,.8);
+    border-radius: 15px;
+    display: block; 
+    margin-top: 1%;
+    overflow: auto; 
+    margin-right: 20%;
+    margin-left: 20%;
+    margin-bottom: 1%;
+    padding: 2%;
+}
+
 .task-container {
     display: -webkit-flex;
     display: flex;
     flex-wrap: wrap;
-    float: left;
-    height: 100px;
     width: 850px;
+    background-color: rgba(244,244,244,.8);
 }
 
 .task-item {
+    font-weight: 300; 
     background-color: rgba(111,174,215,.9);
-    border: 1px solid black;
+    border: 1px solid #418CA4;
     border-radius: 5px;
     display: inline-block;
     font-size: 24px;

@@ -24,13 +24,13 @@ class Task < Sinatra::Base
 	end
 
 	get '/completed' do
-
+		@show_completed
 	erb :completed
-
 	end
 
 	post '/completed' do
-		@primary_keyy = params['completed_check'].to_i
+		@get_completed = Queries.new.completed_task(params[:completed_check].to_i)
+		@show_completed = Queries.new.show_completed_tasks
 		erb :completed
 
 	end

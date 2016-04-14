@@ -4,16 +4,28 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="stylesheets/reset.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheets.css">
+    <!-- for FF, Chrome, Opera -->
+    <link rel="icon" type="image/png" href="./images/check-icon.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="./images/check-icon.png" sizes="32x32">
+    <!-- for IE -->
+    <link rel="icon" type="image/x-icon" href="./images/check-icon.png" >
+    <link rel="shortcut icon" type="image/x-icon" href="./images/check-icon.png"/> 
+    <link href='https://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
   </head>
   <body>
     <header>
-      <h1> 
-        <a href = "newtask"> New Task </a>
-        <a href = "completed"> Completed Tasks </a> 
-      </h1>
+      <nav class="top-bar">
+        <ul>
+        <li><a href= "/"> Current Tasks</a></li>
+        <li><a href= "newtask"> New Task</a></li>
+        <li><a href= "completed"> Completed Tasks</a></li>
+        </ul>
+      </nav>
     </header>
     <main>
-    <%= yield %>
+      <article class="introduction">
+        <%= yield %>
+      </article>
     </main>
   </body>
 </html>

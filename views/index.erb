@@ -1,24 +1,26 @@
 <% @query = Queries.new %>
-<% alltasks=	@query.show_all_tasks %>
+<% alltasks =	@query.show_all_tasks %>
 
 <div class="task-container">
 	<% alltasks.each do |task| %>
 		<div class="task-item"> 
+			<% task[0] %>
+			<h1>
+		  	<%= task[1] %>
+		  </h1>
+			<br/>
+			<%= task[2] %>
+			<br/>
+			<%= task[3] %>
 			<p>
-				<% @id = task[0] %>
-			  <br>
-			  <%= task[1] %>
-				<br>
-				<%= task[2] %>
-				<br>
-				<%= task[3] %>
-				<form action="/completed" method="post" accept-charset="utf-8">
-				  <fieldset>
-				  <legend>completed this task?</legend>
-				    <input type="checkbox" name="completed_check" value="<%= @id %>" />YES!! completed <br />
-				    <input type="submit" value="Submit" />
-					</fieldset>
-				</form>
+			<form action="/completed" method="post" accept-charset="utf-8">
+			  <fieldset class="check-form">
+			    <label>
+			    	<input type="checkbox" name="completed_check" value="<%= task[0] %>" />  Completed?<br />
+			    </label>
+			    <input class="submit-button" type="submit" value="Send to Completed" />
+				</fieldset>
+			</form>
 			</p>
 		</div>
 	<% end %>
