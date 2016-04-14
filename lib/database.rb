@@ -41,14 +41,18 @@ module TaskList
     end
 
     def update_task(hash)
-       @db.execute <<-INSERTSTATEMENT
+       insert_statement = <<-INSERTSTATEMENT
           UPDATE tasks
-          SET title = '#{hash[:title]}',
-           description = '#{hash[:description]}',
-           completed_at = '#{hash[:completed_at]}'
-          WHERE id = '#{hash[:id].to_i}';
+          SET
+          title = :title, 
+          description = :description,
+          completed_at = :completed_at
+          WHERE id = :id;
           INSERTSTATEMENT
+
+        @db.execute(insert_statement, hash)
     end
+
 
     def select_task
       @db.execute <<-HERE
