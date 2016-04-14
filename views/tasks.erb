@@ -53,25 +53,32 @@
 
   <!-- PRINT RESULTS  ------------------------------------------>
   <% if @all_tasks %>
-      <table>
-        <th>
+      <table class="task_list">
+        <th class="table_header">
           <tr colspan=4>Task List </tr>
         </th>
-        <tr>
+        <tr class="header_row">
           <td>No.</td>
           <td>Task Name</td>
           <td>Description</td>
+          <td>Due Date</td>
           <td>Status</td>
           <td>Primary Key</td>
-        </tr>
+        </tr >
+        <form action="" method="post" acet-charset="utf-8">
+          <label for="check_boxes"></label>
         <% index = 1 %>
         <% @all_tasks.each do |task| %>
-          <tr>
+          <tr class="table_row">
             <td><%= index %></td>
             <td><%= task[1] %></td>
             <td><%= task[2] %></td>
             <td><%= task[3] %></td>
-            <td><%= task[0] %></td>
+            <td class="box"><input type="submit" name="completed" value="" id="check_complete_box" /></td>
+            <td class="box2"><input type="submit" name="completed" value="" id="check_complete_box" /></td>
+            <!-- <td class="box"><input type="submit" name="delete_task_box" value="" id="delete_task_box" /></td> -->
+            <!-- <td class="box2"><input type="submit" name="delete"   value="" id="delete_box" /></td> -->
+          </form>
           </tr>
           <% index += 1 %>
         <% end %>
