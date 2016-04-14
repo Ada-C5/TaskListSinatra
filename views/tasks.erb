@@ -63,7 +63,7 @@
           <td>Description</td>
           <td>Due Date</td>
           <td>Status</td>
-          <td>Primary Key</td>
+          <td>Delete</td>
         </tr >
         <form action="" method="post" acet-charset="utf-8">
           <label for="check_boxes"></label>
@@ -75,7 +75,7 @@
             <td><%= task[2] %></td>
             <td><%= task[3] %></td>
             <td class="box"><input type="submit" name="completed" value="" id="check_complete_box" /></td>
-            <td class="box2"><input type="submit" name="completed" value="" id="check_complete_box" /></td>
+            <td class="box2"><input type="submit" name="<%= task[3] %>" value="" id="delete_task_box" /></td>
             <!-- <td class="box"><input type="submit" name="delete_task_box" value="" id="delete_task_box" /></td> -->
             <!-- <td class="box2"><input type="submit" name="delete"   value="" id="delete_box" /></td> -->
           </form>
