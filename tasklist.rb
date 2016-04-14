@@ -24,6 +24,8 @@ class MyApp < Sinatra::Base
 
   get '/tasks/edit/:id' do
     @my_edit = params[:id]
+    @entry = Task_Maintenance.new
+    @current = @entry.get_entry(@my_edit)
     erb :list_edit
   end
 
@@ -33,10 +35,11 @@ class MyApp < Sinatra::Base
 
   put '/tasks/:id' do
     @my_edit = params[:id]
+    @my_title = params["title"]
+    @my_description = params["task"]["description"]
     @my_update = params["date"]
     @my_request = Task_Maintenance.new
-    # @entry = @my_request.get_entry(@my_edit)
-    @my_request.update_completed_tasks(@my_update, @my_edit)
+    @my_request.update_entry(@my_title, @my_description, @my_update, @my_edit)
     redirect '/'
   end
 

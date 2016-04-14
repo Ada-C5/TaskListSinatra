@@ -29,15 +29,15 @@ class Task_Maintenance
     QUERY
   end
 
-  def update_completed_tasks(date, id)
+  def update_entry(title, description, date, id)
     query = <<-QUERY
     UPDATE tasks
-    SET completed_at = ?
+    SET title = ?, description = ?, completed_at = ?
     WHERE id = ?
     ;
     QUERY
 
-    db.execute(query, date, id)
+    db.execute(query, title, description, date, id)
   end
 
   def get_entry(id)
@@ -45,9 +45,9 @@ class Task_Maintenance
     SELECT *
     FROM tasks
     WHERE id = ?
-    LIMIT 1;
+    ;
     QUERY
-    db.get_first_row(query, id)
+    db.execute(query, id)
   end
 
   def delete_task(id)
