@@ -64,6 +64,14 @@ module TaskList
       HERE
     end
 
+    def delete_task(id)
+      @db.execute <<-HERE
+      DELETE
+      FROM tasks
+      WHERE id = #{id};
+      HERE
+    end
+
   end
 end
 

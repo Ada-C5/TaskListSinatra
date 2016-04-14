@@ -13,6 +13,12 @@ class MyApp < Sinatra::Base
     erb :add
   end
 
+  post '/delete/:id' do
+    @id = params.keys[0].to_i
+    @task = TaskList::TaskQueries.new.delete_task(@id).flatten
+    redirect '/'
+  end
+
   post '/update/:id' do
     @id = params.keys[0].to_i
     @task = TaskList::TaskQueries.new.find_by_id(@id).flatten

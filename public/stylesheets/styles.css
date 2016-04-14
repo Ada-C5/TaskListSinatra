@@ -8,11 +8,13 @@ body {
 }
 
 a {
-	padding: 8rem;
+	padding: 5rem;
+	text-decoration: none;
 }
 
 a:hover {
-	background: url(/images/catface.png) center;
+	background: url(/images/catface_small.png) center no-repeat;
+	color: rgba(0, 0, 0, 0);
 	/*width: 20rem;*/
 }
 
@@ -21,9 +23,9 @@ table, th, td {
 	border: 1px solid black;
 }
 
-/*th, td {
+th, td {
   padding: 5px;
-}*/
+}
 
 
 table {
@@ -31,7 +33,6 @@ table {
 }
 
 #task_name {
-	background-color: blue;
 	width: 15%;
 }
 
