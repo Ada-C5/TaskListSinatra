@@ -2,14 +2,12 @@
 <div class = "new-task">
     <a href='/create-task'>New task</a>
 </div>
-<div class = "float-left">
-
-</div>
-<div class = "float-right">
-
+<div class = "column-title">
+  <h3>Tasks to do:</h3>
 </div>
 <% @all_tasks.each do |task_array|%>
-  <div class = "task-box <%= "completed" if (task_array[3] != nil) %>">
+  <% if task_array[3] == nil %>
+  <div class = "task-box">
     <div class = "task-info">
 
     <h2 class="title"><%=task_array[1]%></h2>
@@ -19,7 +17,7 @@
     </p>
     </div>
 
-    <a href= '/<%= "un" if (task_array[3] != nil) %>completed/<%=task_array[0]%>'><div class = "checkbox">
+    <a href= '/completed/<%=task_array[0]%>'><div class = "checkbox">
     </div></a>
 
   <%#put checkbox here!%>
@@ -30,4 +28,35 @@
     <a href='/create-task/<%=task_array[0]%>'>EDIT</a> <%#ADD NUMBER SPECIFICTY in iteration%>
   </div>
   </div>
+  <%end%>
+<%end%>
+
+<div class = "column-title">
+  <h3>Completed tasks:</h3>
+</div>
+
+<% @all_tasks.each do |task_array|%>
+  <% if task_array[3] != nil %>
+  <div class = "completed task-box">
+    <div class = "task-info">
+
+    <h2 class="title"><%=task_array[1]%></h2>
+
+    <p class="description">
+      <%=task_array[2] %>
+    </p>
+    </div>
+
+    <a href= '/uncompleted/<%=task_array[0]%>'><div class = "checkbox">
+    </div></a>
+
+  <%#put checkbox here!%>
+  <%# <form><input type="hidden" name="id" value="<%=task_array[0] >"></form> %>
+  <div class = "task-edits">
+
+    <a href='/delete-task/<%=task_array[0]%>'>DELETE</a> <%#ADD NUMBER SPECIFICTY in iteration%>
+    <a href='/create-task/<%=task_array[0]%>'>EDIT</a> <%#ADD NUMBER SPECIFICTY in iteration%>
+  </div>
+  </div>
+  <%end%>
 <%end%>
