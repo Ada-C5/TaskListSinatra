@@ -48,6 +48,14 @@ module TaskList
            completed_at = '#{hash[:completed_at]}'
           WHERE id = '#{hash[:id].to_i}';
           INSERTSTATEMENT
+
+        @zebra = <<-INSERTSTATEMENT
+          UPDATE tasks
+          SET title = '#{hash[:title]}',
+           description = '#{hash[:description]}',
+           completed_at = '#{hash[:completed_at]}'
+          WHERE id = '#{hash[:id].to_i}';
+          INSERTSTATEMENT
     end
 
     def select_task
