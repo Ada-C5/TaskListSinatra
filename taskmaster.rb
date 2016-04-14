@@ -1,6 +1,7 @@
 require 'sinatra'
 require_relative 'lib/queries'
 require 'chronic'
+require 'rainbow/ext/string'
 
 class TaskMaster < Sinatra::Base
 

@@ -19,7 +19,8 @@ module TaskList
           status TEXT DEFAULT 'Not Started',
           date_created TEXT,
           due_date TEXT,
-          comments BLOB
+          comments BLOB,
+          date_completed TEXT
         );
       CREATESTATEMENT
 
