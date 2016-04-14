@@ -40,7 +40,12 @@ class TaskMaster < Sinatra::Base
     unless params[:due_date] == ""
       params[:due_date] = "#{Chronic.parse(params[:due_date]).strftime("%m/%d/%Y at %I:%M%p")}"
     end
-    @input = Queries.new.update_task(params[:task], params[:priority], params[:status], params[:due_date], params[:comments], params[:task_id].to_i)
+    if params[:status] == "Completed"
+      params[:date_completed] = "#{Time.now.strftime("%m/%d/%Y at %I:%M%p")}"
+    else
+      params[:status]
+    end
+    @input = Queries.new.update_task(params[:task], params[:priority], params[:status], params[:due_date], params[:comments], params[:date_completed], params[:task_id].to_i)
     @all_tasks = Queries.new.display_tasks
     redirect '/'
   end

@@ -26,12 +26,12 @@ class Queries < TaskList::Database
     db.execute("SELECT * FROM tasks WHERE id = ?", id)
   end
 
-  def update_task(task, priority, status, due_date, comments, id)
+  def update_task(task, priority, status, due_date, comments, date_completed, id)
     query = <<-QUERY
-    UPDATE tasks SET task = ?, priority = ?, status = ?, due_date = ?, comments = ?
+    UPDATE tasks SET task = ?, priority = ?, status = ?, due_date = ?, comments = ?, date_completed = ?
     WHERE id = ?;
     QUERY
-    db.execute(query, task, priority, status, due_date, comments, id)
+    db.execute(query, task, priority, status, due_date, comments, date_completed, id)
   end
 
   def sort_by_due_date(direction) #asc or desc
