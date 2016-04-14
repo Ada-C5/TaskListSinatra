@@ -1,0 +1,140 @@
+html {
+  background-attachment: fixed;
+  background-image: url("../images/notebook-background.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  font-family: 'Oswald', sans-serif;
+}
+
+h1 {
+  font-weight: 400;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.main-form label {
+  margin: 0;
+  margin-right: 10px;
+  padding: 0;
+}
+
+.both-forms {
+  margin: 0;
+  margin-top: 20px;
+  overflow: auto;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.check-form, .check-deleted {
+  color: #262127;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+.check-form {
+  float: left;
+}
+
+.check-deleted {
+  float: right;
+}
+
+.top-bar {
+  color:#D76B88;
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  margin-top: 60px;
+  margin-bottom: 40px;
+  text-align: center;
+  width: 100%;
+}
+
+.top-bar ul {
+  list-style: none;
+}
+
+.top-bar ul li {
+  display: inline;
+}
+
+.top-bar a {
+  color:#D76B88;
+  font-size: 32px;
+  padding-top: 10px;
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-bottom: 5px;
+  text-decoration: none;
+}
+
+.task-container {
+  background-color: rgba(244,244,244,.7);
+  border-radius: 15px;
+  color:#4D434F;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1%;
+  margin-right: 20%;
+  margin-left: auto;
+  margin-bottom: 1%;
+  overflow: auto;
+  padding: 2%;
+  width: 758px;
+
+}
+
+.task-item {
+  background-color: rgba(111,174,215,.9);
+  border-radius: 5px;
+  box-shadow: 5px 5px 2px #7691A3;
+  display: inline-block;
+  font-size: 24px;
+  font-weight: 300;
+  margin: .8rem;
+  padding: .5rem;
+  text-align: left;
+  width: 210px;
+}
+
+.task-description {
+  padding: 1rem;
+  line-height: 2.2rem;
+}
+
+.submit-button{
+  color:white;
+  margin-top: 5px;
+  padding: 10px;
+}
+
+input[type=submit] {
+  background-color: rgb(6,104,165);
+  border-radius: 5px;
+  color:white;
+  cursor:pointer;
+  display: inline-block;
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  margin-top: 5px;
+  margin-left: 10px;
+  padding:5px 15px 5px 15px;
+}
+
+input[type=text] {
+    border-radius: 5px;
+    color:#3F1A08;
+    cursor:pointer;
+    display: inline-block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    margin-top: 5px;
+    margin-left: 10px;
+    padding:5px 15px;
+}
