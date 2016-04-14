@@ -30,5 +30,5 @@ module TaskList
 end
 
 
-# task_db = TaskList::Database.new
+# task_db = TaskList::Database.new this will reset the database
 # task_db.create_schema

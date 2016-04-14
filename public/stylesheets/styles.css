@@ -35,12 +35,13 @@ body:after {
 }
 
 section.section-background {
-  background-color: rgba(169, 159, 173, 0.9);
+  background-color: rgba(169, 159, 173, 0.5);
   position: relative;
   border-radius: 1.5em;
   padding: 1%;
   margin-top: 2%;
-  font-family: Verdana, Arial;
-  color: #351C3C;
+  /*font-family: Verdana, Arial;
+  color: #351C3C;*/
   overflow: hidden;
+  vertical-align: middle;
 }

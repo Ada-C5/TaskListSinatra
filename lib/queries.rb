@@ -28,4 +28,14 @@ class TaskList::TaskQueries < TaskList::Queries
     DISPLAY
     @db.execute(query)
   end
+
+
+
+  def delete
+    query = <<-DELETE
+    DELETE FROM tasks
+    WHERE some_column=some_value;
+    DELETE
+      @db.execute(query)
+  end
 end
