@@ -2,6 +2,7 @@ require 'sinatra'
 require_relative 'lib/task_maintenance'
 
 class MyApp < Sinatra::Base
+  set :method_override, true
 
   get '/' do
     @my_task = Task_Maintenance.new
@@ -33,7 +34,9 @@ class MyApp < Sinatra::Base
   put '/tasks/:id' do
     @my_edit = params[:id]
     @my_update = params["date"]
-    @task = Task_Maintenance.get_entry(@my_edit)
+    @my_request = Task_Maintenance.new
+    # @entry = @my_request.get_entry(@my_edit)
+    @my_request.update_completed_tasks(@my_update, @my_edit)
     redirect '/'
   end
   # post '/delete/:id' do

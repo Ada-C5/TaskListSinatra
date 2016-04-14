@@ -31,22 +31,21 @@ class Task_Maintenance
 
   def update_completed_tasks(date, id)
     query = <<-QUERY
-    (UPDATE tasks
+    UPDATE tasks
     SET completed_at = ?
-    WHERE id = ?,
-    );
+    WHERE id = ?
+    ;
     QUERY
 
     db.execute(query, date, id)
   end
 
-  def self.get_entry(id)
+  def get_entry(id)
     query = <<-QUERY
-    (SELECT *
+    SELECT *
     FROM tasks
     WHERE id = ?
-    LIMIT 1)
-    ;
+    LIMIT 1;
     QUERY
     db.get_first_row(query, id)
   end
