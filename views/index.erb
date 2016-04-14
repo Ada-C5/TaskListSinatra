@@ -1,22 +1,30 @@
 <div>
-  <a href="/first_form">Add your task!</a>
+  <a href="/first_form" class="add_button">Add a task!</a>
 </div>
 
+
 <% if @results %>
-  <div class="result">
+  <section>
     <table>
+      <thead>
       <tr>
         <th>Title</th>
         <th>Description</th>
         <th>Completed Date</th>
+        <th>       </th>
       </tr>
+      </thead>
+
+      <tbody>
       <% @results.each do |row| %>
         <tr>
           <td><%= row[1] %></td>
           <td><%= row[2] %></td>
-          <td><%= row[3] %><a href="/tasks/edit/<%= row[0] %>">Edit</a></button></td>
+          <td><%= row[3] %></td>
+          <td class="edit_delete"><a href="/tasks/edit/<%= row[0] %>">Edit/Delete</a></button></td>
         </tr>
       <% end %>
+      </tbody>
     </table>
-  </div>
+  </section>
 <% end %>

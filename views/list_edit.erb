@@ -1,5 +1,5 @@
 <div class="params">
-  <%= params %>
+  <% params %>
 </div>
 
 <h1>Update the Tasklist</h1>
@@ -16,5 +16,5 @@
 <form action="/tasks/<%= @my_edit %>" method="post">
   <input name="_method" type="hidden" value="delete">
 
-  <button type="submit">Delete</button>
+  <button class="alert" type="submit">Delete</button>
 </form>
