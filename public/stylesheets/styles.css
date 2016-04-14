@@ -1,0 +1,139 @@
+/********** GLOBAL **********/
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font: 18px Courier, sans-serif;
+	background-color: #CCC;
+}
+
+/********** HEADER *********/
+
+
+
+/********** INDEX *********/
+
+.other-actions {
+	background-color: #339933;
+	border-radius: 27px;
+	padding: 2rem;
+	color: #FFF;
+	text-decoration: none;
+	text-align: center;
+	width: 25%;
+	margin: 0 auto;
+	border: 5px double #2d862d;
+}
+
+.other-actions a {
+	text-decoration: none;
+	color: #FFF;
+}
+
+.other-actions a:visited {
+	color: #FFF;
+}
+
+ul.displayed_list {
+	list-style-type: none;
+}
+
+.displayed_list li {
+	border-radius: 27px;
+	max-width: 85%;
+	width: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.odd-task {
+	background-color: white;
+	padding: 1rem;
+	margin: 1rem;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 10px 10px 5px #888888;
+}
+
+.even-task {
+	padding: 1rem;
+	margin: 1rem;
+	background-color: #cc99ff;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 10px 10px 5px #888888;
+}
+
+.task-title {
+	font-weight: bolder;
+	font-variant: small-caps;
+	font-size: 125%;
+	display: block;
+	margin-bottom: -1rem;
+}
+
+.task-desc {
+	font-size: 85%;
+	display: block;
+	margin-top: 0;
+}
+
+.completion {
+	font-size: 85%;
+}
+
+.bold-text {
+	font-weight: bolder;
+}
+
+.modify {
+	display: flex;
+	justify-content: flex-end;
+}
+
+button {
+	border: 2px outset #aaa;
+	padding: .5rem;
+	font-size: 14px;
+	font-family: Courier, sans-serif;
+
+}
+
+.odd-task button {
+	background-color: #cc99ff;
+}
+
+/********** ADD/EDIT FORM **********/
+
+.task-add {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+fieldset {
+	display: flex;
+	background-color: #e6ccff;
+	border: 5px double #cc99ff;
+	max-width: 80%;
+	width: auto;
+
+}
+
+.go-back {
+	display: flex;
+	background-color: #339933;
+	border-radius: 27px;
+	padding: 2rem;
+	color: #FFF;
+	text-decoration: none;
+	text-align: center;
+	max-width: 100%;
+	width: auto;
+	border: 5px double #2d862d;
+}
+
+/********** FOOTER **********/
