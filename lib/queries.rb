@@ -39,5 +39,13 @@ class TaskList::TaskQueries < TaskList::Queries
       @db.execute(query,id)
   end
 
+# def complete(completed_at)
+#   query = <<-UPDATE
+#   UPDATE FROM tasks
+#   WHERE completed_at = ?;
+#   UPDATE
+#     @db.execute(query, completed_at)
+#
+# end
 
 end

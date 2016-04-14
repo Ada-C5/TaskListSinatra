@@ -16,8 +16,11 @@ class Tasks < Sinatra::Base
     redirect '/'
   end
 
-
-
+# post '/' do
+#   @complete = TaskList::TaskQueries.new.update(params[:completed_at])
+#   erb :index
+#   redirect '/'
+# end
 
   get '/create_task' do
     erb :create_task
