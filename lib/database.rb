@@ -63,5 +63,15 @@ module TaskList
 
       @db.execute(delete)
     end
+
+    def mark_complete(row_id)
+      complete = <<-STATEMENT
+      UPDATE todo
+      SET completed_at = 1
+      WHERE id = #{row_id};
+      STATEMENT
+
+      @db.execute(complete)
+    end
   end
 end

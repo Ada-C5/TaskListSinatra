@@ -11,9 +11,11 @@ class ToDoList < Sinatra::Base
 	end
 
 	post '/' do
+		@page_title = "Task List"
 		@random = TaskList::ToDoItems.new
 		@random.create_schema!
 		@random.delete_row(params[:id].to_i)
+		@random.mark_complete(params[:mark].to_i)
 		@show= @random.show_all
 		erb :index
 	end

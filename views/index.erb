@@ -1,32 +1,55 @@
 
-<div class="list_headers">
-  <ul>
-    <li>Tasks</li>
-    <li>Description</li>
-    <li>Date Added</li>
-    <li>Mark Completed</li>
-  </ul>
-</div>
-<!-- <form action="" method="post" accept-charset="utf-8"> -->
-<form action="" method="post" accept-charset="utf-8">
-<div class="list">
-  <% @show.length.times do |index| %>
-  <div class="list_items">
-    <ul>
-      <li><%=@show[index][1]%></li>
-      <li><%=@show[index][2]%></li>
-      <li><%=@show[index][3]%></li>
 
-      
-      <li><input type="checkbox" name="completed_at[]" value= " "></li>
-      <li><button type="submit" value=<%=@show[index][0]%> name="id">Remove</button></li>
+<h3>Tasks To Do</h3>
+<div class="tasks">
+  <div class="list_headers">
+    <ul>
+      <li>Tasks</li>
+      <li>Description</li>
+      <li>Date Added</li>
     </ul>
   </div>
-  <%end%>
-  <input type="submit" value="Submit">
+  <form action="" method="post" accept-charset="utf-8">
+    <% @show.length.times do |index| %>
+    <div class="list_items">
+      <ul>
+        <% if @show[index][4] == nil %>
+        <li><%=@show[index][1]%></li>
+        <li><%=@show[index][2]%></li>
+        <li><%=@show[index][3]%></li>
+        <li class="button"><button type="submit" value=<%=@show[index][0]%> name="mark">Mark complete</button></li>
+        <li class="button"><button type="submit" value=<%=@show[index][0]%> name="id">Remove</button></li>
+        <%end%>
+      </ul>
+    </div>
+    <%end%>
+  </form>
 </div>
-</form>
 
-<div class="params">
-  <%= params %>
+<span class="spacer">
+  <br></br>
+</span>
+
+<h3>Completed Tasks</h3>
+<div class="tasks">
+  <div class="list_headers">
+    <ul>
+      <li>Tasks</li>
+      <li>Description</li>
+      <li>Date Added</li>
+    </ul>
+  </div>
+  <form action="" method="post" accept-charset="utf-8">
+    <% @show.length.times do |index| %>
+    <div class="list_items">
+      <ul>
+        <% if @show[index][4] != nil %>
+        <li><%=@show[index][1]%></li>
+        <li><%=@show[index][2]%></li>
+        <li><%=@show[index][3]%></li>
+        <%end%>
+      </ul>
+    </div>
+    <%end%>
+  </form>
 </div>
