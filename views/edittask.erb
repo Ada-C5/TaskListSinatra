@@ -1,0 +1,18 @@
+<h2> Edit Task </h2>
+
+<form action="/" method="post" accept-charset="utf-8">
+  <input type="hidden" name="update[]" value="<%=@task_array[0]%>">
+
+  <label for="title">Task Title:</label>
+  <input type="text" name="update[]" value="<%= @task_array[1] %>" id="title" required>
+
+  <label for="description">Task Description:</label>
+  <input type="textarea" name="update[]" value="<%=@task_array[2]%>" id="description">
+
+  <label for="completed_at">Completed at:</label>
+  <input type="text" name="update[]" value="<%=@task_array[3]%>" id="completed_at">
+
+  <input type="submit" class ="pretty_button" value="Update Task">
+</form>
+
+<a href='/'>See task list again...</a>

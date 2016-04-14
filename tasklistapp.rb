@@ -20,12 +20,22 @@ class Tasklistapp < Sinatra::Base
       mytasks.complete_task(@done_ids)
     end
 
+    if params["update"] != nil
+      @update = params["update"]
+      mytasks.update_task(@update)
+    end
+
     erb :index
   end
 
 
   get '/addtask' do
     erb :addtask
+  end
+
+  get '/edittask' do
+    @task_array = mytasks.find_task(params["id"])
+    erb :edittask
   end
 
   run!

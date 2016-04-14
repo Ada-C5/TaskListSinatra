@@ -23,9 +23,14 @@ class TaskHandler < TaskList::Database
     end
   end
 
-  def find_task_name(name)
-
+  def find_task(id)
+    @db.get_first_row("SELECT * FROM tasklist WHERE id=?;", id)
   end
+
+  def update_task(update)
+    @db.execute("UPDATE tasklist SET title = ? WHERE id=?", update[1], update[0])
+  end
+
 
   def find_task_desc(desc)
 

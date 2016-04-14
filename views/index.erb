@@ -1,5 +1,6 @@
 
 <h1> Welcome to your to-do list! Your tasks are: </h1>
+<%= params %>
 
 <div class = "tasklist">
   <% mytasks = TaskHandler.new %>
@@ -30,6 +31,7 @@
           <td><%= task[1] %></td>
           <td><%= task[2] %></td>
           <td><%= task[3] %></td>
+          <td><a href="/edittask?id=<%= task[0]%>">Edit</a> </td>
         </tr>
         <% end %>
       </table>
