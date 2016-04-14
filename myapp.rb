@@ -30,9 +30,9 @@ class MyApp < Sinatra::Base
   end
 
   post '/update' do
-    @new_params = params
-    @my_hash = params["tasks"].inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}
-    TaskList::TaskQueries.new.update_task(@my_hash)
+    # @new_params = params
+    @other_hash = params["tasks"].inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}
+    TaskList::TaskQueries.new.update_task(@other_hash)
     erb :updated
   end
 

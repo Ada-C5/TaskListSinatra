@@ -24,8 +24,10 @@ module TaskList
   end
 
   class TaskQueries < Database
+    attr_reader :zebra, :insert_statement
+
     def insert_task(hash)
-      insert_statement = <<-INSERTSTATEMENT
+      @insert_statement = <<-INSERTSTATEMENT
         INSERT INTO tasks(
           title, description, completed_at
         ) VALUES (
@@ -39,18 +41,13 @@ module TaskList
     end
 
     def update_task(hash)
-      insert_statement = <<-INSERTSTATEMENT
-        UPDATE tasks SET (
-          title, description, completed_at
-        ) VALUES (
-          :title, :description, :completed_at
-        )
-        WHERE id = #{@id};
-        INSERTSTATEMENT
-
-        prepared_statement = @db.prepare(insert_statement)
-        prepared_statement.execute(hash)
-
+       @db.execute <<-INSERTSTATEMENT
+          UPDATE tasks
+          SET title = '#{hash[:title]}',
+           description = '#{hash[:description]}',
+           completed_at = '#{hash[:completed_at]}'
+          WHERE id = '#{hash[:id].to_i}';
+          INSERTSTATEMENT
     end
 
     def select_task
@@ -61,7 +58,7 @@ module TaskList
 
     def find_by_id(id_num)
       @db.execute <<-HERE
-      SELECT title, description, completed_at
+      SELECT id, title, description, completed_at
       FROM tasks
       WHERE id = #{id_num};
       HERE
