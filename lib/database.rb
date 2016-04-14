@@ -35,7 +35,7 @@ module TaskList
   	def new_task!(params)
   		task= <<-INSERTSTATEMENT
   		INSERT INTO todo(
-  			title, description,  completed_at
+  			title, description, completed_at
   		) VALUES (
   			:title, :description, :completed_at
   		);
@@ -53,6 +53,15 @@ module TaskList
       STATEMENT
 
       @db.execute(all)
+    end
+
+    def delete_row(row_id)
+    	delete = <<-STATEMENT
+      DELETE FROM todo
+      WHERE id = #{row_id};
+      STATEMENT
+
+      @db.execute(delete)
     end
   end
 end

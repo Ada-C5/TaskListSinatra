@@ -35,7 +35,7 @@ h1 {
 
 .list_headers li {
 	display: inline-block;
-	width: 23%;
+	width: 19%;
 	font-size: 1.3rem;
 }
 
@@ -51,5 +51,10 @@ h1 {
 
 .list_items li {
 	display: inline-block;
-	width: 23%;
+	width: 19%;
+}
+
+.list_items button {
+	display: inline-block;
+	width: 5rem;
 }

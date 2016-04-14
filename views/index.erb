@@ -4,11 +4,11 @@
     <li>Tasks</li>
     <li>Description</li>
     <li>Date Added</li>
-    <li>Date Completed</li>
+    <li>Mark Completed</li>
   </ul>
 </div>
 <!-- <form action="" method="post" accept-charset="utf-8"> -->
-
+<form action="" method="post" accept-charset="utf-8">
 <div class="list">
   <% @show.length.times do |index| %>
   <div class="list_items">
@@ -16,14 +16,16 @@
       <li><%=@show[index][1]%></li>
       <li><%=@show[index][2]%></li>
       <li><%=@show[index][3]%></li>
-      <li><%=@show[index][4]%></li>
-<!--       <input type="checkbox" name="completed_at[]" value= " "> -->
+
+      
+      <li><input type="checkbox" name="completed_at[]" value= " "></li>
+      <li><button type="submit" value=<%=@show[index][0]%> name="id">Remove</button></li>
     </ul>
   </div>
   <%end%>
-<!--   <input type="submit" value="Submit"> -->
+  <input type="submit" value="Submit">
 </div>
-<!-- </form> -->
+</form>
 
 <div class="params">
   <%= params %>
