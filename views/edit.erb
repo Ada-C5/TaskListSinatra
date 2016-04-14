@@ -1,0 +1,37 @@
+<%= @find_task %>
+<form action="/edit" method="post" accept-charset="utf-8">
+  <input type="hidden" name="task_id" value="<%= @find_task[0] %>"/>
+  <div class ="item">
+    <label for="task">Task</label>
+    <input type="text" name="task" value="<%= @find_task[1] %>" id="task"/>
+  </div>
+  <div class="item">
+    <label for="priority">Priority</label>
+    <fieldset>
+      <label class = "radio"><input  type="radio" name="priority" value="high" <%= @find_task[2] == "high" ? "checked" : "" %>/>High</label>
+      <label class = "radio"><input type="radio" name="priority" value="medium" <%= @find_task[2] == "medium" ? "checked" : "" %>/>Medium</label>
+      <label class = "radio"><input type="radio" name="priority" value="low" <%= @find_task[2] == "low" ? "checked" : "" %>/>Low</label>
+    </fieldset>
+  </div>
+  <div class="item">
+    <label for="status">Status</label>
+      <select name="status">
+        <option <%= @find_task[3] == "Not Started" ? "selected" : "" %>>Not Started</option>
+        <option <%= @find_task[3] == "In Progress" ? "selected" : "" %>>In Progress</option>
+        <option <%= @find_task[3] == "Completed" ? "selected" : "" %>>Completed</option>
+      </select>
+  </div>
+  <div class="item">
+    <label for="due_date">Due Date</label>
+    <input type="text" name="due_date" value="<%= @find_task[5] %>" id="due_date"/>
+  </div>
+  <div class="item">
+    <label for="comments">Comments</label>
+    <input type="text" name="comments" value="<%= @find_task[6] %>" id="comments"/>
+  </div>
+  <input class="button" type="submit" value="Edit Task"/>
+</form>
+
+<!-- <div class="params">
+  <#%= params %>
+</div> -->
