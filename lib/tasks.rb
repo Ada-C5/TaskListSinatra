@@ -29,9 +29,9 @@ class Tasks
 
   end
 
-  def complete_task(id)
+  def complete_task(id, current_status)
 
-    current_status = @db.execute("SELECT status FROM task_list WHERE id = #{ id };").first.first
+    # current_status = @db.execute("SELECT status FROM task_list WHERE id = #{ id };").first.first
 
     if current_status == "yes"
       check = "no"
