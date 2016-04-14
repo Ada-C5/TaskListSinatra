@@ -24,4 +24,4 @@ module TaskList
   end
 end
 
-TaskList::Database.new.create_schema
+# TaskList::Database.new.create_schema

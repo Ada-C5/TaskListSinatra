@@ -22,6 +22,8 @@ html {
   margin-right: auto;
 }
 
+
+
 table {
   border-collapse: collapse;
   margin-bottom:40px;
@@ -31,3 +33,33 @@ th, td {
   border-bottom: 1px solid #cecfd5;
   padding: 10px 15px;
 }
+
+/******** FORM FORMATTING *********/
+
+input[type=text] {
+  display: block;
+  width: 70%;
+  margin-bottom: 2em;
+  padding: .5em;
+}
+input[type=textarea] {
+  display: block;
+  width: 70%;
+  height: 90px;
+  margin-bottom: 2em;
+  padding: .5em;
+}
+
+input[type=submit] {
+  display: block;
+  width: 20%;
+}
+
+/**** FIGURE THIS OUT LATER ****/
+/*.pretty_button {
+  font-size: 2em;
+  padding: 20px;
+
+}*/
+
+/*********************************/
