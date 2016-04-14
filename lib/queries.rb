@@ -34,28 +34,26 @@ class Queries < TaskList::Database
     db.execute(query, task, priority, status, due_date, comments, id)
   end
 
-  def select_by_due_date(direction) #asc or desc
+  def sort_by_due_date(direction) #asc or desc
     query = <<-QUERY
       SELECT * FROM tasks
       ORDER BY due_date ?;
     QUERY
-
     db.execute(query, "#{direction}")
-
   end
 
   def delete_task(id)
     db.execute("DELETE FROM tasks WHERE id = ?", id)
   end
 
-  def select_by_date_created(direction) #asc or desc
+  def sort_by_date_created(direction) #asc or desc
   end
 
 
-  def select_by_priority(level) #either put high or low
+  def sort_by_priority(level) #either put high or low
   end
 
-  def select_by_status(level) #not started, in progress, completed
+  def sort_by_status(level) #not started, in progress, completed
   end
 
 

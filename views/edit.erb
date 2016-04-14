@@ -23,7 +23,9 @@
   </div>
   <div class="item">
     <label for="due_date">Due Date</label>
-    <input type="text" name="due_date" value="<%= Chronic.parse(@find_task[5]).strftime("%m/%d/%Y at %I:%M%p") %>" id="due_date"/>
+    <input type="text" name="due_date" value="<%= unless (@find_task[5] == nil)
+      @find_task[5] = "#{Chronic.parse(@find_task[5]).strftime("%m/%d/%Y at %I:%M%p")}"
+    end %>" id="due_date"/>
   </div>
   <div class="item">
     <label for="comments">Comments</label>

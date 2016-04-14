@@ -9,6 +9,7 @@ table, th, td {
    text-align: center;
    padding: .8rem;
    margin: auto;
+   border: .5px hotpink solid;
 }
 
 form {
@@ -62,5 +63,18 @@ td.low {
 }
 
 td.jeremy {
-  background-color:pink;
+  background-image : url("../images/creepy.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+td.rosa {
+  color: rgb(212, 70, 81);
+  text-shadow: 2px 2px 2px yellow;
+  font-size: 3rem
+}
+
+td.cat {
+  background-color: tan;
 }
