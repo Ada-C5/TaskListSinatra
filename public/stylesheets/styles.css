@@ -36,13 +36,18 @@ header.title {
   min-height: 4rem;
   float: left;
 }
+
+
 .completed {
   font-style: italic;
   background-color: rgb(50, 77, 100);
   background-color: rgba(50, 77, 100, .7);
-  float: right;
+  float: left;
 }
 
+.uncomplete:nth-child(2n) {
+  float: right;
+}
 
 .checkbox {
   height: 2rem;
@@ -87,6 +92,11 @@ header.title {
 }
 
 .column-title{
-width: 50%;
-text-align: center;
+  clear: both;
+  width: 100%;
+  text-align: center;
+}
+
+.completed:nth-child(2n+1)  {
+  float: right;
 }
