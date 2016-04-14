@@ -9,21 +9,35 @@ class TaskMaster < Sinatra::Base
     erb :index
   end
 
+  get "/add" do
+    erb :add
+  end
+
+  post "/add" do
+    @input = Queries.new.add_task(params[:task], params[:priority], "Not Started", "#{Time.now}", "#{Chronic.parse(params[:due_date])}", params[:comments])
+    @all_tasks = Queries.new.display_tasks
+    redirect '/'
+  end
+
+
   post "/delete" do
     @delete = Queries.new.delete_task(params[:task_id].to_i)
     redirect '/'
   end
 
-  get "/add" do
-    erb :add
+  get "/edit" do
+    @find_task = Queries.new.find_task(params[:task_id].to_i).first
+    erb :edit 
   end
 
-
-  post "/" do
-    @input = Queries.new.add_task(params[:task], params[:priority], "Not Started", "#{Time.now}", "#{Chronic.parse(params[:due_date])}", params[:comments])
+  post "/edit" do
+    @input = Queries.new.update_task(params[:task], params[:priority], params[:status], "#{Chronic.parse(params[:due_date])}", params[:comments], params[:task_id].to_i)
     @all_tasks = Queries.new.display_tasks
-    erb :index
+    redirect "/"
   end
+
+
+
 
   run!
 end

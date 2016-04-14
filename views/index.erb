@@ -12,7 +12,7 @@
       <td>Date Created</td>
       <td>Due Date</td>
       <td>Comments</td>
-      <td>Delete?</td>
+      <td>Actions</td>
     </tr>
     <tr>
       <% @all_tasks.each do |value| %>
@@ -21,8 +21,12 @@
     <td><%= index %></td>
     <% end %>
     <td>
+      <form action="/edit" method "get">
+        <input type="submit" value = "edit">
+        <input type="hidden" name= 'task_id' value="<%= value[0]%>">
+      </form>
       <form action="/delete" method="post">
-        <input type="submit" value="Delete?"/>
+        <input type="submit" value="Delete?" onclick="return confirm('Are you sure?')"/>
         <input type="hidden" name="task_id" value="<%= value[0] %>"/>
       </form>
     </td>
