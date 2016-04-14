@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tasks Home</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
+</head>
+<body>
+
+
+
+  <h1>Travel Tasks!</h1>
+
+  <br>
+  <table>
+    <tr>
+      <th><h2>Delete Task</h2></th>
+      <th><h2>Task Number</h2></th>
+      <th><h2>Task Title</h2></th>
+      <th><h2>Description</h2></th>
+      <th><h2>Complete By:</h2></th>
+
+    </tr>
+    <%if @create%>
+    <tr><%@create.each do |element|%></tr>
+    <td>
+      <form action="" method="post" accept-charset="utf-8">
+        <br><br><input type="submit" value="delete">
+        <label for="delete"></label>
+        <input type="hidden" name="id" value="<%=element[0]%>" id="delete">
+      </form>
+    </td>
+    <%element.each do |value|%>
+    <td><p class="keys"><%=value%></p></td>
+    <%end%>
+    <%end%>
+    <%end%>
+  </table>
+
+
+  <br>
+  <a href="/create_task"> Create a new Task!</a>
+  <br><a href=""> Delete Task!</a>
+
+
+</body>
+</html>
