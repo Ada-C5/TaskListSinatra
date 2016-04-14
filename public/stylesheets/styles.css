@@ -3,10 +3,14 @@
 	margin: 0;
 	padding: 0;
 	font-size: 1rem;
-	background-color: #e5fff6;
-	width: 60rem;
+	width: 75rem;
+	font-family: Roboto;
 }
 
+body{
+	background: url(../images/boiling-clouds.jpg) no-repeat;
+	background-size: cover;
+}
 h1 {
 	font-size: 2.5rem;
 	text-align: center;
@@ -28,9 +32,16 @@ h1 {
 
 .nav_bar a {
 	font-size: 1.5rem;
+	color:gray;
 	background-color: white;
 	padding: 1rem;
 	border-radius: .9rem;
+	text-decoration: none;
+}
+
+.nav_bar a:hover {
+	background-color: gray;
+	color: white;
 }
 
 .list_headers li {
@@ -54,15 +65,39 @@ h1 {
 	width: 19%;
 }
 
-.list_items .button button {
+.list_items .button button, #add {
 	display: inline-block;
 	width: 9rem;
 	height: 100%;
 	border-radius: .9rem;
 	padding: .5rem;
 	text-align: center;
+	margin: .5rem;
 }
-
+#add{
+	font-size: 1.3rem;
+}
 .spacer {
 	height: 9rem;
+}
+
+h3 {
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+}
+
+fieldset{
+	border: none;
+	text-align: center;
+}
+
+legend {
+	display: none;
+}
+
+.input_area {
+	width: 30rem;
+	padding: 1rem 1rem;
+	border-radius: .5rem;
+	margin-bottom: 1rem;
 }
