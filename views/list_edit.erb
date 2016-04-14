@@ -1,0 +1,27 @@
+<div class="params">
+  <% @current %>
+</div>
+
+<h1>Update the Tasklist</h1>
+
+<form action="/tasks/<%= @my_edit %>" method="post">
+  <input name="_method" type="hidden" value="put">
+
+  <label for="title">Update title:</label>
+  <input id="title" name="title" type="text" value="<%= @current.first[1] %>">
+
+  <p><label for="description">Description</label>
+  <textarea type="text" name="task[description]" value="" id="description"><%= @current.first[2] %></textarea></p>
+
+  <label for="date">Add completed date:</label>
+  <input id="date" name="date" type="text" value="<%= @current.first[3] %>">
+
+  <p><button type="submit">Update</button></p>
+  
+</form>
+
+<form action="/tasks/<%= @my_edit %>" method="post">
+  <input name="_method" type="hidden" value="delete">
+
+  <button class="alert" type="submit" onclick="return confirm('Are you sure?');">Delete</button>
+</form>

@@ -1,0 +1,30 @@
+<div>
+  <a href="/first_form" class="add_button">Add a task!</a>
+</div>
+
+<h1 class="WHOOT">Lisa and Suzanne's Tasklist</h1>
+<% if @results %>
+  <section>
+    <table>
+      <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Completed Date</th>
+        <th>       </th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @results.each do |row| %>
+        <tr>
+          <td><%= row[1] %></td>
+          <td><%= row[2] %></td>
+          <td><%= row[3] %></td>
+          <td class="edit_delete"><a href="/tasks/edit/<%= row[0] %>">Edit/Delete</a></button></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </section>
+<% end %>
