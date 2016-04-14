@@ -1,0 +1,29 @@
+<h1><a href="/add">Add a Task!</a></h1>
+
+<table>
+	<tr>
+		<th id = "task_name">Task Name</th>
+		<th>Description</th>
+		<th>Completed</th>
+		<th id = "edit">Edit</th>
+		<th id = "edit">Delete</th>
+	</tr>
+	<% @entire_list.each do |array| %>
+	<tr>
+		<% array.drop(1).each do |item|%>
+		<td><%= item %> </td>
+		<% end %>
+
+		<td><form method="post" action="/update/<%= array[0] %>">
+     	<input type="hidden" name="<%= array[0] %>" value="">
+     	<input type='submit' value='Update!'>
+ 		  </form>
+ 		</td>
+ 		<td><form method="post" action="/delete/<%= array[0] %>">
+     	<input type="hidden" name="<%= array[0] %>" value="">
+     	<input type='submit' value='Delete!'>
+ 		  </form>
+ 		</td>
+	</tr>
+	<% end %>
+</table>
