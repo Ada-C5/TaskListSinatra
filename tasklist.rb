@@ -27,10 +27,6 @@ class ToDoList < Sinatra::Base
 
 	post '/new_task' do
 		@page_title = "Task posted."
-		# @title = params[:title]
-		# @description = params[:description]
-		# @completed_at = params[:completed_at]
-		# @date_added = params[:date_added]
 		@random = TaskList::ToDoItems.new
 		@random.create_schema!
 		@random.new_task!(params)

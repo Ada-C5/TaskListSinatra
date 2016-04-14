@@ -9,8 +9,6 @@ module TaskList
     end
 
     def create_schema!
-      # Put your ruby code here to use the @db variable
-      # to setup your schema in the database.
       todo = <<-CREATESTATEMENT
       CREATE TABLE IF NOT EXISTS todo (
       id INTEGER PRIMARY KEY,
@@ -40,7 +38,6 @@ module TaskList
   			:title, :description, :completed_at
   		);
   		INSERTSTATEMENT
-      # OrderDate datetime NOT NULL DEFAULT GETDATE()
 
   		prepared = @db.prepare(task)
   		prepared.execute(params)
