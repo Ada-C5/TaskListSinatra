@@ -31,11 +31,13 @@ class TaskList::TaskQueries < TaskList::Queries
 
 
 
-  def delete
+  def delete(id)
     query = <<-DELETE
     DELETE FROM tasks
-    WHERE some_column=some_value;
+    WHERE id = ?;
     DELETE
-      @db.execute(query)
+      @db.execute(query,id)
   end
+
+
 end
