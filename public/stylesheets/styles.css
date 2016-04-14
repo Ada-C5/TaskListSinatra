@@ -4,14 +4,25 @@
 
 html {
   font-size: 16px;
+  font-family: 'Josefin Sans', Helvetica, Arial, sans-serif;
 }
 body {
-  background-color: #2d5986;
+  background-color: #19334d;
   color: #ecf2f9;
+  padding: 4rem;
+}
+
+h1 {
+  font-size: 3.5rem;
 }
 
 h2 {
   margin: .25rem 0;
+}
+
+a {
+  color: white;
+  text-decoration: none;
 }
 
 header.title {
@@ -23,17 +34,26 @@ header.title {
   /*INDEX*/
 .task-info {
   display: inline-block;
-  width: 65%;
+  width: 75%;
+  min-height: 4rem;
   margin-left: .25rem;
+  padding: .5rem .3rem;
 }
+
+.task-info p {
+  margin: 0;
+  padding-left: .6rem;
+  color: #CDD2D7;
+}
+
 .task-box {
-  background-color: rgb(200, 200, 200);
-  background-color: rgba(200, 200, 200, .5);
+  /*background-color: rgb(62, 98, 134);*/
+  background-color: #54789B;
   width: 45%;
-  border: .25rem solid #18314e;
+  border: .1rem solid #18314e;
+  border-radius: .3rem;
   color: #ecf2f9;
   margin: 2% 2.5%;
-  min-height: 4rem;
   float: left;
 }
 
@@ -45,27 +65,35 @@ header.title {
   float: left;
 }
 
-.uncomplete:nth-child(2n) {
+.uncomplete:nth-child(2n+1) {
   float: right;
 }
 
 .checkbox {
-  height: 2rem;
-  width: 10%;
-  border: .25rem solid #18314e;
-  background-color: rgb(155, 155, 155);
-  background-color: rgba(155, 155, 155, .5);
+  height: 2.5rem;
+  width: 2.5rem;
+  margin: 2%;
+  background-color: #ABB8C4;
+  background-image: url('/images/check.png');
+  opacity: 0.3;
+  background-size: contain;
+  border: .25rem solid #ABB8C4;
+  border-radius: .25rem;
+  vertical-align: middle;
   float: left;
-  margin: 2% 3%;
+  overflow: auto;
 }
 
 .checkbox:hover {
-  background-color: rgba(255, 255, 255, .8);
-}
+  background-color: #E9E9E9;
+  border: .25rem solid #E9E9E9;
+  background-image: url('/images/check.png');
+  opacity: 0.6;}
 
 .completed .checkbox  {
   background-image: url('/images/creepysmile.png');
   z-index: 1;
+  opacity: .8;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -73,14 +101,40 @@ header.title {
 .task-edits {
   float: right;
   /*display: block;*/
-  width: 15%;
-  margin: 1%;
+  width: 5%;
+  margin: 1% 0.5% 1% 1%;
   font-size: 1rem;
 }
 
+.task-edits i {
+  font-size: 1.5rem;
+  color: #9fbfdf;
+  padding: .2rem 0;
+}
+
+.task-edits i:hover {
+  color: white;
+}
+
 .new-task {
+  width: 25%;
+  height: 3.5rem;
+  margin: 3% auto;
+  padding: 1rem;
+  background: #E4C158;
+  border-radius: .25rem;
   font-size: 1.5rem;
   text-align: center;
+  cursor: pointer;
+}
+
+.new-task:hover {
+  background: #E3B429;
+}
+
+.new-task p {
+  margin: 0;
+  padding: 0;
 }
 
 .float-left {
@@ -100,3 +154,37 @@ header.title {
 .completed:nth-child(2n+1)  {
   float: right;
 }
+
+/** FORM **/
+
+.create-task {
+  width: 50%;
+  text-align: center;
+  margin: auto;
+}
+
+.create-task form * {
+  display: block;
+  margin: auto;
+  padding: .2rem;
+}
+
+.create-task form label {
+  margin: 4%;
+}
+
+.create-task form textarea,
+.create-task form input[type=text] {
+  margin-top: 2%;
+}
+
+
+
+
+
+
+
+
+
+
+/** END **/

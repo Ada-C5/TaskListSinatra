@@ -1,9 +1,10 @@
-
-<div class = "new-task">
-    <a href='/create-task'>New task</a>
-</div>
+<a href='/create-task'>
+  <div class = "new-task">
+      <p>New task</p>
+  </div>
+</a>
 <div class = "column-title">
-  <h3>Tasks to do:</h3>
+  <h2>Tasks to do:</h2>
 </div>
 <section>
 
@@ -26,8 +27,8 @@
   <%# <form><input type="hidden" name="id" value="<%=task_array[0] >"></form> %>
   <div class = "task-edits">
 
-    <a href='/delete-task/<%=task_array[0]%>'>DELETE</a> <%#ADD NUMBER SPECIFICTY in iteration%>
-    <a href='/create-task/<%=task_array[0]%>'>EDIT</a> <%#ADD NUMBER SPECIFICTY in iteration%>
+    <a href='/create-task/<%=task_array[0]%>'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> <%#ADD NUMBER SPECIFICTY in iteration%>
+    <a href='/delete-task/<%=task_array[0]%>'><i class="fa fa-trash" aria-hidden="true"></i></a> <%#ADD NUMBER SPECIFICTY in iteration%>
   </div>
   </div>
   <%end%>
@@ -36,7 +37,7 @@
 <section>
 
 <div class = "column-title">
-  <h3>Completed tasks:</h3>
+  <h2>Completed tasks:</h2>
 </div>
 
 <% @all_tasks.each do |task_array|%>
@@ -58,8 +59,8 @@
   <%# <form><input type="hidden" name="id" value="<%=task_array[0] >"></form> %>
   <div class = "task-edits">
 
-    <a href='/delete-task/<%=task_array[0]%>'>DELETE</a> <%#ADD NUMBER SPECIFICTY in iteration%>
-    <a href='/create-task/<%=task_array[0]%>'>EDIT</a> <%#ADD NUMBER SPECIFICTY in iteration%>
+    <a href='/create-task/<%=task_array[0]%>'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> <%#ADD NUMBER SPECIFICTY in iteration%>
+    <a href='/delete-task/<%=task_array[0]%>'><i class="fa fa-trash" aria-hidden="true"></i></a> <%#ADD NUMBER SPECIFICTY in iteration%>
   </div>
   </div>
   <%end%>
