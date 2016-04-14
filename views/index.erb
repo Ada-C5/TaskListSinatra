@@ -17,17 +17,13 @@
     <th><h2>Description</h2></th>
     <th><h2>Complete By:</h2></th>
   </tr>
-  <tr>
-   <td>
      <%if @create%>
-     <%@create.each do |element|%>
-           <%element.each do |key,value|%>
-           <p class="keys"><%=key%></p>
+        <tr><%@create.each do |element|%></tr>
+           <%element.each do |value|%>
+            <td><p class="keys"><%=value%></p></td>
            <%end%>
          <%end%>
      <%end%>
-   </td>
- </tr>
 </table>
 
 <br>
