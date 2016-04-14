@@ -24,11 +24,32 @@ h1 {
 .main-form input {
   height: 22px;
 }
-.check-form {
+
+.both-forms {
+  border: solid red;
+  /*display: inline-block;*/
+  overflow: auto;
+  padding: 0;
+  margin: 0;
+  margin-top: 20px;
+}
+
+.check-form, .check-deleted {
     font-size: 14px;
     color: #262127;
-    float: right;
-    /*border: solid red;*/
+    padding: 0;
+    margin: 0;
+}
+
+.check-form {
+  float: left;
+  border: solid green;
+
+}
+
+.check-deleted {
+  border: solid blue;
+float: right;
 }
 
 .submit-button{
