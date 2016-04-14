@@ -39,15 +39,13 @@ class MyApp < Sinatra::Base
     @my_request.update_completed_tasks(@my_update, @my_edit)
     redirect '/'
   end
-  # post '/delete/:id' do
-  # if params.has_key?("ok")
-  #   item = Item.first(:id => params[:id])
-  #   item.destroy
-  #   redirect '/'
-  # else
-  #   redirect '/'
-  # end
-# end
+
+  delete '/tasks/:id' do
+    @my_edit = params[:id]
+    @my_request = Task_Maintenance.new
+    @my_request.delete_task(@my_edit)
+    redirect '/'
+  end
 
 
   run!

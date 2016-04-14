@@ -50,4 +50,14 @@ class Task_Maintenance
     db.get_first_row(query, id)
   end
 
+  def delete_task(id)
+    query = <<-QUERY
+    DELETE
+    FROM tasks
+    WHERE id = ?
+    ;
+    QUERY
+    db.execute(query, id)
+  end
+
 end
