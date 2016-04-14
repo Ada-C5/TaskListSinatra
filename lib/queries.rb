@@ -27,8 +27,8 @@ class Queries < TaskList::Database
 
   def update_task(task, priority, status, due_date, comments, id)
     query = <<-QUERY
-    UPDATE tasks SET task = ?, priority = ?, status = ? due_date = ?, comments = ?
-    WHERE id = ?
+    UPDATE tasks SET task = ?, priority = ?, status = ?, due_date = ?, comments = ?
+    WHERE id = ?;
     QUERY
     db.execute(query, task, priority, status, due_date, comments, id)
   end

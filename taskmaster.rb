@@ -6,6 +6,7 @@ class TaskMaster < Sinatra::Base
 
   get "/" do
     @all_tasks = Queries.new.display_tasks
+
     erb :index
   end
 
@@ -14,7 +15,7 @@ class TaskMaster < Sinatra::Base
   end
 
   post "/add" do
-    @input = Queries.new.add_task(params[:task], params[:priority], "Not Started", "#{Time.now}", "#{Chronic.parse(params[:due_date])}", params[:comments])
+    @input = Queries.new.add_task(params[:task], params[:priority], "Not Started", "#{Time.now.strftime("%m/%d/%Y at %I:%M%p")}", "#{Chronic.parse(params[:due_date]).strftime("%m/%d/%Y at %I:%M%p")}", params[:comments])
     @all_tasks = Queries.new.display_tasks
     redirect '/'
   end
@@ -27,13 +28,13 @@ class TaskMaster < Sinatra::Base
 
   get "/edit" do
     @find_task = Queries.new.find_task(params[:task_id].to_i).first
-    erb :edit 
+    erb :edit
   end
 
   post "/edit" do
-    @input = Queries.new.update_task(params[:task], params[:priority], params[:status], "#{Chronic.parse(params[:due_date])}", params[:comments], params[:task_id].to_i)
+    @input = Queries.new.update_task(params[:task], params[:priority], params[:status], "#{Chronic.parse(params[:due_date]).strftime("%m/%d/%Y at %I:%M%p")}", params[:comments], params[:task_id].to_i)
     @all_tasks = Queries.new.display_tasks
-    redirect "/"
+    redirect '/'
   end
 
 

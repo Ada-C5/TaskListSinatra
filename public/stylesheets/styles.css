@@ -48,3 +48,19 @@ input.button {
   color:white;
   border-radius: 3px;
 }
+
+td.high {
+  background-color: red ;
+}
+
+td.medium {
+  background-color: orange;
+}
+
+td.low {
+  background-color: purple;
+}
+
+td.jeremy {
+  background-color:pink;
+}

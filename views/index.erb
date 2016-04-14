@@ -18,7 +18,7 @@
       <% @all_tasks.each do |value| %>
     </tr>
     <% value.each do |index| %>
-    <td><%= index %></td>
+    <td class ="<%= index %>"><%= index %></td>
     <% end %>
     <td>
       <form action="/edit" method "get">
