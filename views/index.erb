@@ -1,16 +1,15 @@
 <h1>TaskList</h1>
 <!-- <img src="images/construction.gif" alt="Construction worker"/> -->
 <a href="/add">Add a new task</a>
-<a href="/search">Search for a task</a>
 <section>
   <% if @all_tasks %>
   <table>
     <tr>
       <td>ID</td>
       <td>Task</td>
-      <td>Priority</td>
-      <td>Status</td>
-      <td>Date Created</td>
+      <td><a href="/priority/DESC">v</a>Priority<a href="/priority/ASC">^</a></td>
+      <td><a href="/status/DESC">v</a>Status<a href="/status/ASC">^</a></td>
+      <td><a href="/date_created/DESC">v</a>Date Created<a href="/date_created/ASC">^</a></td>
       <td><a href="/due_date/DESC">v</a>Due Date<a href="/due_date/ASC">^</a></td>
       <td>Comments</td>
       <td>Date Completed</td>

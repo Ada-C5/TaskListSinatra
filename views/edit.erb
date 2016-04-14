@@ -8,7 +8,7 @@
   <div class="item">
     <label for="priority">Priority</label>
     <fieldset>
-      <label class = "radio"><input  type="radio" name="priority" value="high" <%= @find_task[2] == "high" ? "checked" : "" %>/>High</label>
+      <label class = "radio"><input  type="radio" name="priority" value="urgent" <%= @find_task[2] == "urgent" ? "checked" : "" %>/>Urgent</label>
       <label class = "radio"><input type="radio" name="priority" value="medium" <%= @find_task[2] == "medium" ? "checked" : "" %>/>Medium</label>
       <label class = "radio"><input type="radio" name="priority" value="low" <%= @find_task[2] == "low" ? "checked" : "" %>/>Low</label>
     </fieldset>
