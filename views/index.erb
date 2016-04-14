@@ -1,5 +1,5 @@
 
-  <h1> Welcome to your to-do list! Your tasks are: </h1>
+<h1> Welcome to your to-do list! Your tasks are: </h1>
 
 <div class = "tasklist">
   <% mytasks = TaskHandler.new %>
@@ -9,25 +9,35 @@
   <% tasks = mytasks.list_all %>
   <% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Completed on</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% tasks.each do |task| %>
-  <tr>
-    <td><%= task[1] %></td>
-    <td><%= task[2] %></td>
-    <td><%= task[3] %></td>
-  </tr>
-  <% end %>
-    </tbody>
-</table>
-</div>
+  <form action="/" method="post">
+
+    <table>
+      <thead>
+        <tr>
+          <th>Completed?</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Completed on</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% tasks.each do |task| %>
+        <tr>
+          <td>
+            <label for="Completed?"></label>
+            <input type="checkbox" name="done_ids[]" value=<%= task[0] %>>
+          </td>
+          <td><%= task[1] %></td>
+          <td><%= task[2] %></td>
+          <td><%= task[3] %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+
+    <input type="submit" value="Mark Checked Tasks As Complete" />
+  </form>
+</tbody>
 
 <div class = "call_to_action">
   Would you like to add a new task? <a href="/addtask">Click here!</a>

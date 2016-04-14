@@ -17,8 +17,10 @@ class TaskHandler < TaskList::Database
     VALUES (:title, :description, :completed_at);", task_info)
   end
 
-  def find_task_date(complete_date)
-
+  def complete_task(done_ids)
+    done_ids.each do |id|
+      @db.execute("UPDATE tasklist SET completed_at = date('now') WHERE id=?", (id))
+    end
   end
 
   def find_task_name(name)
