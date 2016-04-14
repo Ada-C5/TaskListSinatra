@@ -12,11 +12,11 @@ class Queries
   def show_all_tasks
   	query = <<-QUERY
 
-  	SELECT 
+  	SELECT
       id, title, description, completed
-  	FROM 
+  	FROM
       tasks
-    WHERE 
+    WHERE
        completed != 'COMPLETED';
   	QUERY
 
@@ -25,12 +25,12 @@ class Queries
 
 	def completed_task(primary_key)
 		query = <<-QUERY
-    UPDATE 
-      tasks 
-    SET 
-      completed='COMPLETED' 
+    UPDATE
+      tasks
+    SET
+      completed='COMPLETED'
     WHERE id =?;
-    
+
     QUERY
 
   	db.execute(query, primary_key)
@@ -39,16 +39,26 @@ class Queries
   def show_completed_tasks
     query = <<-QUERY
 
-    SELECT 
+    SELECT
       id, title, description, completed
-    FROM 
+    FROM
       tasks
-    WHERE 
+    WHERE
       completed = 'COMPLETED';
     QUERY
 
     db.execute(query)
 
-  end 
+  end
+
+	def deleted_task(primary_key)
+		query = <<-QUERY
+    DELETE FROM
+      tasks
+    WHERE id =?;
+    QUERY
+
+  	db.execute(query, primary_key)
+	end
 
 end

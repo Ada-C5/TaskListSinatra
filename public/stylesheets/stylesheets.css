@@ -2,8 +2,8 @@ html {
     background-attachment: fixed;
     font-family: 'Oswald', sans-serif;
 /*    background-image: url("../images/beach_background.jpg");
-    background-position: center; 
-    background-repeat: no-repeat; 
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -11,14 +11,23 @@ html {
 }
 
 h1 {
-    text-align: center; 
-    font-weight: 400; 
+    text-align: center;
+    font-weight: 400;
 }
 
+.main-form label {
+  padding: 0;
+  margin: 0;
+  margin-right: 10px;
+}
+
+.main-form input {
+  height: 22px;
+}
 .check-form {
     font-size: 14px;
     color: #262127;
-    float: right; 
+    float: right;
     /*border: solid red;*/
 }
 
@@ -41,16 +50,16 @@ h1 {
 }
 
 .top-bar ul li {
-    display: inline; 
+    display: inline;
 }
 
-.top-bar a { 
+.top-bar a {
     color:#D76B88;
-    font-size: 32px; 
+    font-size: 32px;
     padding-top: 10px;
     padding-right: 30px;
     padding-left: 30px;
-    padding-bottom: 5px; 
+    padding-bottom: 5px;
     text-decoration: none;
 }
 
@@ -62,9 +71,9 @@ h1 {
     color:#4D434F;
     background-color: rgba(244,244,244,.8);
     border-radius: 15px;
-    display: block; 
+    display: block;
     margin-top: 1%;
-    overflow: auto; 
+    overflow: auto;
     margin-right: 20%;
     margin-left: 20%;
     margin-bottom: 1%;
@@ -80,7 +89,7 @@ h1 {
 }
 
 .task-item {
-    font-weight: 300; 
+    font-weight: 300;
     background-color: rgba(111,174,215,.9);
     border: 1px solid #418CA4;
     border-radius: 5px;

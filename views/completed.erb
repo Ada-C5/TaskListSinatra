@@ -3,17 +3,24 @@
 
 <div class="task-container">
 	<% alltasks.each do |task| %>
-		<div class="task-item"> 
-			<p>
-				<% task[0] %>
-			  <br>
-			  <%= task[1] %>
-				<br>
-				<%= task[2] %>
-				<br>
-				<%= task[3] %>
-				<br>
-			</p>
-		</div>
+	<div class="task-item">
+		<% task[0] %>
+		<h1>
+			<%= task[1] %>
+		</h1>
+		<br/>
+		<%= task[2] %>
+		<br/>
+		<%= task[3] %>
+
+	<form action="/deleted" method="post" accept-charset="utf-8">
+		<fieldset class="check-form">
+			<label>
+				<input type="checkbox" name="deleted_check" value="<%= task[0] %>" />  Delete this<br />
+			</label>
+			<input class="submit-button" type="submit" value="Delete Forever" />
+		</fieldset>
+	</form>
+</div>
 	<% end %>
 </div>
