@@ -50,7 +50,10 @@ class TaskMaster < Sinatra::Base
     redirect '/'
   end
 
+  post "/sort-due-date" do
 
+    redirect '/'
+  end
 
 
   run!
