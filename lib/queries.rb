@@ -43,18 +43,13 @@ class Queries < TaskList::Database
   end
 
   def delete_task(id)
-    db.execute("DELETE FROM tasks WHERE id = ?", id)
+    db.execute("DELETE FROM tasks WHERE id = ?;", id)
   end
 
-  def sort_by_date_created(direction) #asc or desc
+  def sort(field, direction) #asc or desc
+    db.execute("select * from tasks ORDER BY #{field} #{direction};")
   end
 
-
-  def sort_by_priority(level) #either put high or low
-  end
-
-  def sort_by_status(level) #not started, in progress, completed
-  end
 
 
 

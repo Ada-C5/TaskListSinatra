@@ -7,14 +7,12 @@ class TaskMaster < Sinatra::Base
 
   get "/" do
     @all_tasks = Queries.new.display_tasks
-
     erb :index
   end
 
   get "/add" do
     erb :add
   end
-
 
   post "/add" do
     unless params[:due_date] == ""
@@ -24,7 +22,6 @@ class TaskMaster < Sinatra::Base
     @all_tasks = Queries.new.display_tasks
     redirect '/'
   end
-
 
   post "/delete" do
     @delete = Queries.new.delete_task(params[:task_id].to_i)
@@ -50,11 +47,10 @@ class TaskMaster < Sinatra::Base
     redirect '/'
   end
 
-  post "/sort-due-date" do
-
-    redirect '/'
+  get "/:field/:direction" do
+    @all_tasks = Queries.new.sort(params[:field], params[:direction])
+    erb :index
   end
-
 
   run!
 end
