@@ -1,0 +1,96 @@
+<!-- create new task -->
+<article>
+<!-- add task  ------------------------------------------>
+
+  <form action="" method="post" acet-charset="utf-8">
+    <fieldset>
+      <legend>Create A Task</legend>
+      <label class="form_label" for="user_word"></label>
+      <input type="text" name=task_hash[title] value="Task Name" id="user_word">
+      <input type="textarea" name=task_hash[description] value="Task Description" id="user_word">
+      <input type="text" name=task_hash[completed_at] value="Due Date" id="user_word">
+      <input class="button" type="submit"  value="Add" name="add_task" id="submit">
+    </fieldset>
+  </form>
+
+<!-- search  ------------------------------------------>
+
+  <form action="" method="post" acet-charset="utf-8">
+    <fieldset>
+      <legend>Find Tasks</legend>
+      <label class="form_label" for="user_word"></label>
+      <input type="text" name="text" value="Input Word Here" id="user_word">
+      <input class="button" type="submit"  value="Find" name="search" id="submit">
+    </fieldset>
+  </form>
+
+  <% if @search_results %>
+      <table>
+        <th>
+          <tr colspan=4 class="headings">Search Results </tr>
+        </th>
+        <tr>
+          <td>No.</td>
+          <td>Task Name</td>
+          <td>Description</td>
+          <td>Status</td>
+          <td>Primary Key</td>
+        </tr>
+        <% index = 1 %>
+        <% @search_results.each do |result| %>
+          <tr>
+            <td><%= index %></td>
+            <td><%= result[1] %></td>
+            <td><%= result[2] %></td>
+            <td><%= result[3] %></td>
+            <td><%= result[0] %></td>
+          </tr>
+          <% index += 1 %>
+        <% end %>
+      </table>
+  <% end %>
+
+  <!-- PRINT RESULTS  ------------------------------------------>
+  <% if @all_tasks %>
+      <table class="task_list">
+        <th class="table_header">
+          <tr class="headings" colspan=4>Task List </tr>
+        </th>
+        <tr class="header_row">
+          <td>No.</td>
+          <td>Task Name</td>
+          <td>Description</td>
+          <td>Due Date</td>
+          <td>Status</td>
+          <td>Delete</td>
+        </tr >
+          <label for="checked_boxes"></label>
+        <% index = 1 %>
+        <% @all_tasks.each do |task| %>
+          <tr class="table_row">
+            <td><%= index %></td>
+            <td><%= task[1] %></td>
+            <td><%= task[2] %></td>
+            <td><%= task[3] %></td>
+            <form action="" method="post" acet-charset="utf-8">
+            <% if task[4] == "yes" %>
+              <td class="completed_box"><input type="submit" name="completed" value="" id="check_complete_box" /></td>
+              <td class="completed_box"><input type="hidden" name="status" value=<%= task[4] %> id="check_complete_box" /></td>
+              <td class="completed_box"><input type="hidden" name="completed" value=<%= task[0] %> id="check_complete_box" /></td>
+            <% else %>
+              <td class="box"><input type="submit" name="submit" value="" id="check_complete_box" /></td>
+              <td class="completed_box"><input type="hidden" name="status" value=<%= task[4] %> id="check_complete_box" /></td>
+              <td class="box"><input type="hidden" name="completed" value=<%= task[0] %> id="check_complete_box" /></td>
+            <% end %>
+          </form>
+          <form action="" method="post" acet-charset="utf-8">
+            <td class="box2"><input type="submit" name="delete_box" value="" id="delete_task_box" /></td>
+            <td class="box2"><input type="hidden" name="delete" value=<%= task[0] %> id="delete_task_box" /></td>
+          </form>
+          </tr>
+          <% index += 1 %>
+        <% end %>
+      </table>
+  <% end %>
+
+</article>
