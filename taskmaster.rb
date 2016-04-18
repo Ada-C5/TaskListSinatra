@@ -30,6 +30,9 @@ class TaskMaster < Sinatra::Base
 
   get "/edit" do
     @find_task = Queries.new.find_task(params[:task_id].to_i).first
+    if @find_task[5] != ""
+      @find_task[5] = "#{Chronic.parse(@find_task[5]).strftime("%m/%d/%Y at %I:%M%p")}"
+    end
     erb :edit
   end
 

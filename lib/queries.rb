@@ -49,8 +49,4 @@ class Queries < TaskList::Database
   def sort(field, direction) #asc or desc
     db.execute("select * from tasks ORDER BY #{field} #{direction};")
   end
-
-
-
-
 end
