@@ -1,20 +1,102 @@
 body {
   text-align: center;
+  /*background-color: rgb(136,136,136);*/
+  font-family: fantasy;
+  margin: 3rem 8rem;
+  background: linear-gradient(to bottom, rgba(181,189,200,1) 0%,rgba(130,140,149,1) 25%,rgba(40,52,59,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+strong {
+  font-size: 1.1
+}
+
+header {
+  margin: 1.5rem;
+  font-size: 1.5rem;
+}
+
+a {
+  margin: 1.5rem;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.floating {
+  display: inline-block;
+  width: 20rem;
+  height: 22rem;
+  margin: 1rem;
+  border: 3px solid black;
+  padding: .5rem;
+  float: left;
+  background-color: whitesmoke;
+}
+
+.card-head {
+  font-size: 1.3rem;
+  margin: .3rem;
+  border-bottom: thick dotted black;
+}
+
+.action-buttons {
+  margin: .3rem;
+}
+
+.add-floating {
+  display: inline-block;
+  width: 35rem;
+  height: 35rem;
+  margin: auto 1rem;
+  border: 3px solid black;
+  padding: .5rem;
+  background-color: whitesmoke;
+}
+
+.edit-floating {
+  display: inline-block;
+  width: 35rem;
+  height: 38rem;
+  margin: auto 1rem;
+  border: 3px solid black;
+  padding: .5rem;
+  background-color: whitesmoke;
+}
+
+.add-priority {
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+
+.add-head {
+  padding: 2rem;
+  font-size: 1.3rem;
+  margin: 2rem;
+  border-bottom: thick dotted black;
+}
+
+.add-center {
+  margin: 0 auto;
+  width: 50%;
 }
 
 table, th, td {
-   border: 1px solid black;
-   background-color: lightblue;
-   border-collapse: collapse;
-   text-align: center;
-   padding: .8rem;
-   margin: auto;
-   border: .5px hotpink solid;
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+  padding: .8rem;
+  margin: auto;
+}
+
+.tablerow {
+  display: block;
+  float: left;
 }
 
 form {
-  background-color: lime;
-  border: 2px solid black;
+  display: inline;
   text-align: left;
   font-size: 2rem;
 }
@@ -27,22 +109,32 @@ fieldset {
 
 div.item {
   display: block;
+  padding: 1.2rem;
+}
+
+.item-task {
+  display: block;
   height: 3rem;
   padding: 1rem;
+  margin: 2rem;
+  border-bottom: thick dotted black;
+}
+
+.add-task {
+  font-size: 2rem;
+  margin: 2rem;
 }
 
 input {
   font-size: 1.5rem;
-  /*width: 30%;*/
   padding: .5rem;
 }
 
 label.radio {
-  padding: 0 64px;
+  padding: 0 60px;
 }
 
 input.button {
-  background-color:lightblue;
   width: auto;
   padding: 1rem;
   margin: 1rem;
@@ -50,16 +142,19 @@ input.button {
   border-radius: 3px;
 }
 
-td.urgent {
-  background-color: red ;
+.urgent {
+  color: red;
+  display: inline;
 }
 
-td.medium {
-  background-color: orange;
+.medium {
+  color: orange;
+  display: inline;
 }
 
-td.low {
-  background-color: purple;
+.low {
+  color: purple;
+  display: inline;
 }
 
 td.jeremy {
@@ -77,4 +172,11 @@ td.rosa {
 
 td.cat {
   background-color: tan;
+}
+
+footer {
+  display: block;
+  margin: auto;
+  clear: both;
+  padding: 4rem;
 }
