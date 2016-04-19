@@ -10,7 +10,7 @@
     <% if @all_tasks %>
     <% @all_tasks.each do |task| %>
     <section>
-      <div class="floating">
+      <div class="floating <%= task[3] == 'Completed' ? 'completed' : '' %>">
         <section class="card-head">
           <strong> <h3><%= task[1] %></h3></strong>
         </section>
