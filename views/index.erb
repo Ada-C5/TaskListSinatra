@@ -1,0 +1,86 @@
+
+<!-- <img src="images/construction.gif" alt="Construction worker"/> -->
+
+<a href="/add">Add a new task</a>
+<a href="/priority/DESC">Sort by Priority</a>
+<a href="/status/DESC">Sort by Status</a>
+<a href="/due_date/ASC">Sort by Due Date</a>
+
+  <article>
+    <% if @all_tasks %>
+    <% @all_tasks.each do |task| %>
+    <section>
+      <div class="floating <%= task[3] == 'Completed' ? 'completed' : '' %>">
+        <section class="card-head">
+          <strong> <h3><%= task[1] %></h3></strong>
+        </section>
+        <div>
+          <strong>Priority</strong> : <div class="<%= task[2] %>"><%= task[2] %></div>
+        </div>
+        <div>
+          <strong>Status</strong> : <%= task[3] %> <br/>
+        </div>
+        <div>
+          <strong>Date Created</strong> : <%= task[4] %> <br/>
+        </div>
+        <div>
+          <strong>Due Date</strong> : <%= task[5] %> <br/>
+        </div>
+        <div>
+          <strong>Comments</strong> : <%= task[6] %> <br/>
+        </div>
+        <div>
+          <strong>Date Completed</strong> : <%= task[7] %>
+        </div>
+        <section class="action-buttons">
+          <form action="/edit" method "get">
+            <input type="submit" value = "edit">
+            <input type="hidden" name= 'task_id' value="<%= task[0]%>">
+          </form>
+          <form action="/delete" method="post">
+            <input type="submit" value="Delete" onclick="return confirm('Are you sure?')"/>
+            <input type="hidden" name="task_id" value="<%= task[0] %>"/>
+          </form>
+        </section>
+      </div>
+    </section>
+    <% end %>
+    <% end %>
+  </article>
+
+  <!-- <section>
+  <% if @all_tasks %>
+  <table>
+  <tr>
+  <td>ID</td>
+  <td>Task</td>
+  <td><a href="/priority/DESC">v</a>Priority<a href="/priority/ASC">^</a></td>
+  <td><a href="/status/DESC">v</a>Status<a href="/status/ASC">^</a></td>
+  <td><a href="/date_created/DESC">v</a>Date Created<a href="/date_created/ASC">^</a></td>
+  <td><a href="/due_date/DESC">v</a>Due Date<a href="/due_date/ASC">^</a></td>
+  <td>Comments</td>
+  <td>Date Completed</td>
+  <td>Actions</td>
+</tr>
+
+<tr>
+<% @all_tasks.each do |value| %>
+</tr>
+
+<% value.each do |index| %>
+<td class ="<%= index %>"><%= index %></td>
+<% end %>
+<td>
+<form action="/edit" method "get">
+<input type="submit" value = "edit">
+<input type="hidden" name= 'task_id' value="<%= value[0]%>">
+</form>
+<form action="/delete" method="post">
+<input type="submit" value="Delete?" onclick="return confirm('Are you sure?')"/>
+<input type="hidden" name="task_id" value="<%= value[0] %>"/>
+</form>
+</td>
+<% end %>
+</table>
+<% end %>
+</section> -->

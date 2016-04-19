@@ -1,0 +1,190 @@
+body {
+  text-align: center;
+  font-family: fantasy;
+  margin: 3rem auto;
+  width: 80%;
+  background: linear-gradient(to bottom, rgba(181,189,200,1) 0%,rgba(130,140,149,1) 25%,rgba(40,52,59,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+strong {
+  font-size: 1.1
+}
+
+header {
+  margin: 1.5rem;
+  font-size: 1.5rem;
+}
+
+a {
+  margin: 1.5rem;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.floating {
+  display: inline-block;
+  width: 20rem;
+  height: 22rem;
+  margin: 1rem;
+  border: 3px solid black;
+  padding: .5rem;
+  float: left;
+  background-color: whitesmoke;
+}
+
+.card-head {
+  font-size: 1.3rem;
+  margin: .3rem;
+  border-bottom: thick dotted black;
+}
+
+.action-buttons {
+  margin: .3rem;
+}
+
+.add-floating {
+  display: inline-block;
+  width: 35rem;
+  height: 35rem;
+  margin: auto 1rem;
+  border: 3px solid black;
+  padding: .5rem;
+  background-color: whitesmoke;
+}
+
+.edit-floating {
+  display: inline-block;
+  width: 35rem;
+  height: 38rem;
+  margin: auto 1rem;
+  border: 3px solid black;
+  padding: .5rem;
+  background-color: whitesmoke;
+}
+
+.add-priority {
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+
+.add-head {
+  padding: 2rem;
+  font-size: 1.3rem;
+  margin: 2rem;
+  border-bottom: thick dotted black;
+}
+
+.add-center {
+  margin: 0 auto;
+  width: 50%;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+  padding: .8rem;
+  margin: auto;
+}
+
+.tablerow {
+  display: block;
+  float: left;
+}
+
+form {
+  display: inline;
+  text-align: left;
+  font-size: 2rem;
+}
+
+fieldset {
+  display:inline-block;
+  width: 50%;
+  font-size: 1rem
+}
+
+div.item {
+  display: block;
+  padding: 1.2rem;
+}
+
+.item-task {
+  display: block;
+  height: 3rem;
+  padding: 1rem;
+  margin: 2rem;
+  border-bottom: thick dotted black;
+}
+
+.add-task {
+  font-size: 2rem;
+  margin: 2rem;
+}
+
+input {
+  font-size: 1.5rem;
+  padding: .5rem;
+}
+
+label.radio {
+  padding: 0 60px;
+}
+
+input.button {
+  width: auto;
+  padding: 1rem;
+  margin: 1rem;
+  color:white;
+  border-radius: 3px;
+}
+
+.urgent {
+  color: red;
+  display: inline;
+}
+
+.medium {
+  color: orange;
+  display: inline;
+}
+
+.low {
+  color: purple;
+  display: inline;
+}
+
+td.jeremy {
+  background-image : url("../images/creepy.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+td.rosa {
+  color: rgb(212, 70, 81);
+  text-shadow: 2px 2px 2px yellow;
+  font-size: 3rem
+}
+
+td.cat {
+  background-color: tan;
+}
+
+footer {
+  display: block;
+  margin: auto;
+  clear: both;
+  padding: 4rem;
+}
+
+.completed {
+  opacity: 0.1;
+}
+
+.completed:hover {
+  opacity: 0.3;
+}

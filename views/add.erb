@@ -1,0 +1,59 @@
+<section class="add-center">
+  <div class="add-floating">
+    <form action="/add" method="post" accept-charset="utf-8">
+      <div class ="item-task">
+        <label class="add-task" for="task">Task</label>
+        <input type="text" name="task" value="" id="task"/>
+      </div>
+      <div class="item">
+        <label class="add-priority" for="priority">Priority</label>
+        <fieldset>
+          <label class = "radio"><input  type="radio" name="priority" value="urgent"/>Urgent</label>
+          <label class = "radio"><input type="radio" name="priority" value="medium"/>Medium</label>
+          <label class = "radio"><input type="radio" name="priority" value="low"/>Low</label>
+        </fieldset>
+      </div>
+      <div class="item">
+        <label for="due_date">Due Date</label>
+        <input type="text" name="due_date" value="" id="due_date"/>
+      </div>
+      <div class="item">
+        <label for="comments">Comments</label>
+        <input type="text" name="comments" value="" id="comments"/>
+      </div>
+      <form action="/add" method "post">
+        <input type="submit" value="Add Task">
+      </form>
+    </form>
+  </div>
+</section>
+
+
+
+<!-- <form action="/add" method="post" accept-charset="utf-8">
+<div class ="item">
+<label for="task">Task</label>
+<input type="text" name="task" value="" id="task"/>
+</div>
+<div class="item">
+<label for="priority">Priority</label>
+<fieldset>
+<label class = "radio"><input  type="radio" name="priority" value="urgent"/>Urgent</label>
+<label class = "radio"><input type="radio" name="priority" value="medium"/>Medium</label>
+<label class = "radio"><input type="radio" name="priority" value="low"/>Low</label>
+</fieldset>
+</div>
+<div class="item">
+<label for="due_date">Due Date</label>
+<input type="text" name="due_date" value="" id="due_date"/>
+</div>
+<div class="item">
+<label for="comments">Comments</label>
+<input type="text" name="comments" value="" id="comments"/>
+</div>
+<input class="button" type="submit" value="Add Task"/>
+</form> -->
+
+<!-- <div class="params">
+<#%= params %>
+</div> -->
